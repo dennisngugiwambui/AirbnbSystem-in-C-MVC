@@ -1,0 +1,168 @@
+﻿@* Views/Host/Messages.cshtml *@
+@using BevoBnB.ViewModels
+@using BevoBnB.Models
+@model IEnumerable<MessageViewModel>
+@{
+    ViewData["Title"] = "Messages";
+    Layout = "_Layout";
+}
+
+<div class="space-y-6">
+    <div class="flex justify-between items-center">
+        <h2 class="text-2xl font-bold text-gray-900">Messages</h2>
+        <div class="flex gap-2">
+            <a asp-action="Messages" asp-route-status="inbox"
+               class="px-4 py-2 text-sm font-medium @(ViewBag.CurrentTab == "inbox" ? "text-white bg-blue-600" : "text-gray-700 bg-white border border-gray-300") rounded-md hover:bg-opacity-90">
+                Inbox
+            </a>
+            <a asp-action="Messages" asp-route-status="archived"
+               class="px-4 py-2 text-sm font-medium @(ViewBag.CurrentTab == "archived" ? "text-white bg-blue-600" : "text-gray-700 bg-white border border-gray-300") rounded-md hover:bg-opacity-90">
+                Archived
+            </a>
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 gap-4">
+        @if (!Model.Any())
+        {
+            <div class="bg-white rounded-xl shadow-sm p-8 text-center">
+                <div class="flex flex-col items-center justify-center space-y-4">
+                    <svg class="w-12 h-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                    <p class="text-gray-500">No messages found</p>
+                </div>
+            </div>
+        }
+        else
+        {
+            @foreach (var message in Model)
+            {
+                <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+                    <div class="p-6 @(message.Status == MessageStatus.Unread ? "border-l-4 border-blue-600" : "")">
+                        <div class="flex flex-col md:flex-row justify-between gap-4">
+                            <div class="space-y-3">
+                                <div class="flex items-start gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-600">
+                                        @{
+                                            var initials = string.Join("", message.SenderName.Split(' ')
+                                            .Where(x => !string.IsNullOrEmpty(x))
+                                            .Take(2)
+                                            .Select(x => x[0]));
+                                        }
+                                        @initials
+                                    </div>
+                                    <div>
+                                        <div class="flex items-center gap-2">
+                                            <h3 class="font-medium text-gray-900">@message.SenderName</h3>
+                                            @if (message.Status == MessageStatus.Unread)
+                                            {
+                                                <span class="px-2 py-1 text-xs bg-blue-100 text-blue-800 rounded-full">New</span>
+                                            }
+                                        </div>
+                                        <p class="text-sm text-gray-500">@message.SentDate.ToString("MMM dd, yyyy HH:mm")</p>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <h4 class="font-medium text-gray-900">@message.Subject</h4>
+                                    <p class="mt-1 text-gray-600">@message.Content</p>
+                                </div>
+
+                                @if (!string.IsNullOrEmpty(message.PropertyNumber))
+                                {
+                                    <div class="inline-flex items-center px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">
+                                        <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                                        </svg>
+                                        Property #@message.PropertyNumber
+                                    </div>
+                                }
+                            </div>
+
+                            <div class="flex items-center gap-2">
+                                <button onclick="showReplyForm(@message.MessageID)"
+                                        class="inline-flex items-center px-4 py-2 border border-blue-600 text-sm font-medium rounded-md text-blue-600 bg-white hover:bg-blue-50">
+                                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6" />
+                                    </svg>
+                                    Reply
+                                </button>
+                                @if (message.Status != MessageStatus.Archived)
+                                {
+                                    <form asp-action="ArchiveMessage" asp-route-id="@message.MessageID" method="post" class="inline">
+                                        @Html.AntiForgeryToken()
+                                        <button type="submit" class="p-2 text-gray-400 hover:text-gray-500">
+                                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
+                                            </svg>
+                                        </button>
+                                    </form>
+                                }
+                            </div>
+                        </div>
+
+                        @if (message.Replies.Any())
+                        {
+                            <div class="mt-6 space-y-4 pl-8 border-l-2 border-gray-100">
+                                @foreach (var reply in message.Replies)
+                                {
+                                    <div class="space-y-2">
+                                        <div class="flex items-center gap-2">
+                                            <div class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 text-sm">
+                                                @{
+                                                    var replyInitials = string.Join("", reply.SenderName.Split(' ')
+                                                    .Where(x => !string.IsNullOrEmpty(x))
+                                                    .Take(2)
+                                                    .Select(x => x[0]));
+                                                }
+                                                @replyInitials
+                                            </div>
+                                            <div>
+                                                <p class="text-sm font-medium text-gray-900">@reply.SenderName</p>
+                                                <p class="text-xs text-gray-500">@reply.SentDate.ToString("MMM dd, yyyy HH:mm")</p>
+                                            </div>
+                                        </div>
+                                        <p class="text-gray-600">@reply.Content</p>
+                                    </div>
+                                }
+                            </div>
+                        }
+
+                        <div id="replyForm-@message.MessageID" class="hidden mt-6 pl-8">
+                            <form asp-action="Reply" asp-route-id="@message.MessageID" method="post">
+                                @Html.AntiForgeryToken()
+                                <div class="space-y-4">
+                                    <textarea name="Content" rows="4" required
+                                              class="block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                                              placeholder="Write your reply..."></textarea>
+                                    <div class="flex justify-end gap-2">
+                                        <button type="button" onclick="hideReplyForm(@message.MessageID)"
+                                                class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50">
+                                            Cancel
+                                        </button>
+                                        <button type="submit"
+                                                class="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700">
+                                            Send Reply
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</div>
+
+    <script>
+        function showReplyForm(messageId) {
+            document.getElementById(`replyForm-${messageId}`).classList.remove('hidden');
+        }
+
+        function hideReplyForm(messageId) {
+            document.getElementById(`replyForm-${messageId}`).classList.add('hidden');
+        }
+    </script>

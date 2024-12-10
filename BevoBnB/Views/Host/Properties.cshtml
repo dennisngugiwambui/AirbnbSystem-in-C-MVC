@@ -1,0 +1,95 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model IEnumerable<Property>
+@{
+    ViewData["Title"] = "My Properties";
+}
+
+<div class="grid grid-cols-1 gap-6">
+    <div class="flex justify-between items-center">
+        <h2 class="text-2xl font-bold text-gray-900">My Properties</h2>
+        <a asp-action="CreateProperty" class="bg-green-600 text-white px-4 py-2 rounded-lg flex items-center gap-2">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+            </svg>
+            Add New Property
+        </a>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        @foreach (var property in Model)
+        {
+            <div class="bg-white rounded-xl shadow-sm @(!property.PropertyStatus ? "opacity-75" : "")">
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-900">Property #@property.PropertyNumber</h3>
+                            <p class="text-sm text-gray-600">@property.Street</p>
+                            <p class="text-sm text-gray-600">@property.City, @property.State @property.Zip</p>
+                        </div>
+                        <div class="flex gap-2">
+                            <a asp-action="EditProperty" asp-route-id="@property.PropertyID" 
+                               class="p-2 text-blue-600 hover:bg-blue-50 rounded-full">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4 mb-4">
+                        <div>
+                            <p class="text-sm font-medium text-gray-600">Category</p>
+                            <p class="text-gray-900">@property.Category.CategoryName</p>
+                        </div>
+                        <div>
+                            <p class="text-sm font-medium text-gray-600">Status</p>
+                            <div class="flex gap-2">
+                                <span class="px-2 py-1 text-xs rounded-full 
+                                    @(property.PropertyStatus ? "bg-green-100 text-green-800" : "bg-red-100 text-red-800")">
+                                    @(property.PropertyStatus ? "Active" : "Inactive")
+                                </span>
+                                <span class="px-2 py-1 text-xs rounded-full 
+                                    @(property.AdminApproved ? "bg-green-100 text-green-800" : "bg-yellow-100 text-yellow-800")">
+                                    @(property.AdminApproved ? "Approved" : "Pending")
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-4">
+                        <div>
+                            <p class="text-sm font-medium text-gray-600">Weekday Price</p>
+                            <p class="text-gray-900">@property.WeekdayPrice.ToString("C")</p>
+                        </div>
+                        <div>
+                            <p class="text-sm font-medium text-gray-600">Weekend Price</p>
+                            <p class="text-gray-900">@property.WeekendPrice.ToString("C")</p>
+                        </div>
+                        <div>
+                            <p class="text-sm font-medium text-gray-600">Cleaning Fee</p>
+                            <p class="text-gray-900">@property.CleaningFee.ToString("C")</p>
+                        </div>
+                    </div>
+
+                    @if (property.DiscountRate.HasValue)
+                    {
+                        <div class="mt-4 bg-blue-50 p-3 rounded-lg">
+                            <p class="text-sm text-blue-800">
+                                <svg class="w-4 h-4 inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path d="M9 14l6-6m-5.5.5h.01m4.99 5h.01M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16l3.5-2 3.5 2 3.5-2 3.5 2z"></path>
+                                </svg>
+                                @property.DiscountRate% discount for stays of @property.MinNightsForDiscount nights or more
+                            </p>
+                        </div>
+                    }
+                </div>
+            </div>
+        }
+    </div>
+</div>
+

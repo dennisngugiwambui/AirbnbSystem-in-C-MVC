@@ -1,0 +1,120 @@
+﻿
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model List<Reservation>
+
+@{
+    ViewData["Title"] = "Manage Reservations";
+    Layout = "_Layout";
+}
+
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <h1 class="text-2xl font-bold mb-6">Manage Reservations</h1>
+
+    <!-- Pending Reservations -->
+    <div class="mb-8">
+        <h2 class="text-xl font-semibold mb-4">Pending Reservations</h2>
+        <div class="bg-white rounded-lg shadow overflow-hidden">
+
+
+            @if (Model.Any(r => r.ReservationStatus == ReservationStatus.Pending))
+            {
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Confirmation #</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Property</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Guest</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Check In</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Check Out</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Total</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                            @foreach (var reservation in Model.Where(r => r.ReservationStatus == ReservationStatus.Pending))
+                            {
+                                <tr>
+                                    <td class="px-6 py-4">@reservation.ConfirmationNumber</td>
+                                    <td class="px-6 py-4">@reservation.Property.PropertyNumber</td>
+                                    <td class="px-6 py-4">@($"{reservation.Customer.FirstName} {reservation.Customer.LastName}")</td>
+                                    <td class="px-6 py-4">@reservation.CheckIn.ToString("MMM dd, yyyy")</td>
+                                    <td class="px-6 py-4">@reservation.CheckOut.ToString("MMM dd, yyyy")</td>
+                                    <td class="px-6 py-4">@reservation.Total.ToString("C")</td>
+                                    <td class="px-6 py-4">
+                                        <form asp-action="ConfirmReservation" method="post" class="inline">
+                                            @Html.AntiForgeryToken()
+                                            <input type="hidden" name="reservationId" value="@reservation.ReservationID" />
+                                            <button type="submit" class="text-white bg-green-600 hover:bg-green-700 px-4 py-2 rounded">
+                                                Confirm
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+            else
+            {
+                <div class="p-6 text-center text-gray-500">
+                    No pending reservations
+                </div>
+            }
+        </div>
+    </div>
+
+    <!-- Confirmed Reservations -->
+    <div>
+        <h2 class="text-xl font-semibold mb-4">Confirmed Reservations</h2>
+        <div class="bg-white rounded-lg shadow overflow-hidden">
+
+            @if (Model.Any(r => r.ReservationStatus == ReservationStatus.Confirmed))
+            {
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Confirmation #</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Property</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Guest</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Check In</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Check Out</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Total</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                            @foreach (var reservation in Model.Where(r => r.ReservationStatus == ReservationStatus.Confirmed))
+                            {
+                                <tr>
+                                    <td class="px-6 py-4">@reservation.ConfirmationNumber</td>
+                                    <td class="px-6 py-4">@reservation.Property.PropertyNumber</td>
+                                    <td class="px-6 py-4">@($"{reservation.Customer.FirstName} {reservation.Customer.LastName}")</td>
+                                    <td class="px-6 py-4">@reservation.CheckIn.ToString("MMM dd, yyyy")</td>
+                                    <td class="px-6 py-4">@reservation.CheckOut.ToString("MMM dd, yyyy")</td>
+                                    <td class="px-6 py-4">@reservation.Total.ToString("C")</td>
+                                    <td class="px-6 py-4">
+                                        <span class="text-green-600">Confirmed</span>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+            else
+            {
+                <div class="p-6 text-center text-gray-500">
+                    No confirmed reservations
+                </div>
+            }
+        </div>
+    </div>
+</div>

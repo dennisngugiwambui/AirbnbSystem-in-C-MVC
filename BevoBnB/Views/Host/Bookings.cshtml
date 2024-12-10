@@ -1,0 +1,164 @@
+﻿@* Views/Host/Reservations.cshtml *@
+
+@using BevoBnB.Models;
+@using BevoBnB.ViewModels;
+@model IEnumerable<PropertyReservationsViewModel>
+@{
+    ViewData["Title"] = "Reservations";
+}
+
+<div class="space-y-8 p-6">
+    <div class="flex justify-between items-center">
+        <h2 class="text-2xl font-bold text-gray-900">Property Reservations</h2>
+        <div>
+            <select id="statusFilter" class="rounded-md border-gray-300" onchange="filterReservations(this.value)">
+                <option value="all">All Reservations</option>
+                <option value="upcoming">Upcoming</option>
+                <option value="active">Active</option>
+                <option value="completed">Completed</option>
+                <option value="cancelled">Cancelled</option>
+            </select>
+        </div>
+    </div>
+
+    @if (!Model.Any())
+    {
+        <div class="bg-white rounded-lg shadow-sm p-8 text-center">
+            <p class="text-gray-500">No properties found with reservations.</p>
+        </div>
+    }
+    else
+    {
+        foreach (var property in Model)
+        {
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                <!-- Property Header -->
+                <div class="bg-gray-50 p-6 border-b">
+                    <div class="flex items-start gap-6">
+                        @if (!string.IsNullOrEmpty(property.ImageUrl))
+                        {
+                            <img src="~/images/properties/@property.ImageUrl"
+                                 alt="Property"
+                                 class="w-32 h-32 object-cover rounded-lg shadow-sm" />
+                        }
+                        <div class="flex-grow">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-xl font-bold text-gray-900">Property #@property.PropertyNumber</h3>
+                                    <p class="text-gray-600">@property.Street</p>
+                                    <p class="text-gray-600">@property.City, @property.State</p>
+                                </div>
+                                <div class="text-right">
+                                    <p class="text-sm text-gray-600">Total Earnings</p>
+                                    <p class="text-xl font-bold text-green-600">@property.TotalEarnings.ToString("C")</p>
+                                    <p class="text-sm text-gray-600 mt-1">
+                                        @property.ActiveReservations Active @(property.ActiveReservations == 1 ? "Reservation" : "Reservations")
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reservations Table -->
+                <div class="overflow-x-auto">
+                    @if (!property.Reservations.Any())
+                    {
+                        <div class="p-6 text-center text-gray-500">
+                            <p>No reservations yet</p>
+                        </div>
+                    }
+                    else
+                    {
+                        <table class="min-w-full">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Guest</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Dates</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Guests</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
+                                    <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase">Total</th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white divide-y divide-gray-200">
+                                @foreach (var reservation in property.Reservations)
+                                {
+                                    <tr class="reservation-row"
+                                        data-status="@reservation.Status.ToString().ToLower()"
+                                        data-dates="@reservation.CheckIn.ToString("yyyy-MM-dd")">
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div>
+                                                <div class="font-medium text-gray-900">@reservation.CustomerName</div>
+                                                <div class="text-sm text-gray-500">@reservation.CustomerEmail</div>
+                                                <div class="text-sm text-gray-500">@reservation.CustomerPhone</div>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="text-sm text-gray-900">
+                                                @reservation.CheckIn.ToString("MMM dd") - @reservation.CheckOut.ToString("MMM dd, yyyy")
+                                            </div>
+                                            <div class="text-xs text-gray-500">
+                                                @((reservation.CheckOut - reservation.CheckIn).Days) nights
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                            @reservation.NumOfGuests
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full
+                                                @(reservation.Status == ReservationStatus.Confirmed
+                                                    ? "bg-green-100 text-green-800"
+                                                    : "bg-red-100 text-red-800")">
+                                                @reservation.Status
+                                            </span>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-right">
+                                            <div class="text-sm font-medium text-gray-900">@reservation.Total.ToString("C")</div>
+                                            @if (reservation.DiscountAmount > 0)
+                                            {
+                                                <div class="text-xs text-green-600">
+                                                    -@reservation.DiscountAmount.ToString("C") discount
+                                                </div>
+                                            }
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    }
+                </div>
+            </div>
+        }
+    }
+</div>
+    <script>
+        function filterReservations(status) {
+            const rows = document.querySelectorAll('.reservation-row');
+
+            rows.forEach(row => {
+                const rowStatus = row.dataset.status;
+                const checkIn = new Date(row.dataset.dates);
+                const now = new Date();
+
+                let show = false;
+                switch(status) {
+                    case 'upcoming':
+                        show = rowStatus === 'confirmed' && checkIn > now;
+                        break;
+                    case 'active':
+                        show = rowStatus === 'confirmed' && checkIn <= now;
+                        break;
+                    case 'completed':
+                        show = rowStatus === 'completed';
+                        break;
+                    case 'cancelled':
+                        show = rowStatus === 'cancelled';
+                        break;
+                    default:
+                        show = true;
+                }
+
+                row.style.display = show ? '' : 'none';
+            });
+        }
+    </script>

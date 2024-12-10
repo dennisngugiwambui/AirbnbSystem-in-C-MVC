@@ -1,0 +1,101 @@
+﻿@* Views/Host/Earnings.cshtml *@
+@model BevoBnB.ViewModels.EarningsViewModel
+@{
+    ViewData["Title"] = "Earnings";
+}
+
+<div class="space-y-8">
+    <h2 class="text-2xl font-bold text-gray-900">Earnings Overview</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white p-6 rounded-xl shadow-sm">
+            <div class="flex items-center justify-between mb-4">
+                <div class="text-sm font-medium text-gray-600">Total Revenue</div>
+                <div class="p-2 bg-green-50 text-green-600 rounded-lg">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                </div>
+            </div>
+            <div class="text-2xl font-bold text-gray-900">@Model.TotalEarnings.ToString("C")</div>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl shadow-sm">
+            <div class="flex items-center justify-between mb-4">
+                <div class="text-sm font-medium text-gray-600">Monthly Revenue</div>
+                <div class="p-2 bg-blue-50 text-blue-600 rounded-lg">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                    </svg>
+                </div>
+            </div>
+            <div class="text-2xl font-bold text-gray-900">@Model.MonthlyEarnings.ToString("C")</div>
+            <div class="text-sm @(Model.MonthlyEarnings > Model.LastMonthEarnings ? "text-green-600" : "text-red-600") mt-2">
+                @if (Model.MonthlyEarnings > Model.LastMonthEarnings)
+                {
+                    <span>↑ @Model.EarningsChange% from last month</span>
+                }
+                else if (Model.MonthlyEarnings < Model.LastMonthEarnings)
+                {
+                    <span>↓ @Model.EarningsChange% from last month</span>
+                }
+                else
+                {
+                    <span>No change from last month</span>
+                }
+            </div>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl shadow-sm">
+            <div class="flex items-center justify-between mb-4">
+                <div class="text-sm font-medium text-gray-600">Completed Bookings</div>
+                <div class="p-2 bg-purple-50 text-purple-600 rounded-lg">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
+                    </svg>
+                </div>
+            </div>
+            <div class="text-2xl font-bold text-gray-900">@Model.CompletedBookings</div>
+            <div class="text-sm text-gray-600 mt-2">Out of @Model.TotalBookings total bookings</div>
+        </div>
+    </div>
+
+    <div class="bg-white rounded-xl shadow-sm p-6">
+        <div class="flex items-center justify-between mb-6">
+            <h2 class="text-lg font-bold text-gray-900">Earnings Details</h2>
+            <select id="timeRange" class="text-sm border rounded-md px-3 py-2"
+                    onchange="updateEarningsDetails(this.value)">
+                <option value="month">This Month</option>
+                <option value="quarter">Last 3 Months</option>
+                <option value="halfYear">Last 6 Months</option>
+                <option value="year">This Year</option>
+            </select>
+        </div>
+        <div class="space-y-4">
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <p class="text-sm font-medium text-gray-600">Stay Revenue</p>
+                    <p class="mt-1 text-lg font-semibold text-gray-900">@Model.StayRevenue.ToString("C")</p>
+                    <p class="text-xs text-gray-500">90% of total revenue</p>
+                </div>
+                <div>
+                    <p class="text-sm font-medium text-gray-600">Cleaning Fees</p>
+                    <p class="mt-1 text-lg font-semibold text-gray-900">@Model.CleaningFees.ToString("C")</p>
+                    <p class="text-xs text-gray-500">100% collected</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script>
+        function updateEarningsDetails(timeRange) {
+            // Add AJAX call to update earnings details based on selected time range
+            fetch(`/Host/GetEarningsDetails?timeRange=${timeRange}`)
+                .then(response => response.json())
+                .then(data => {
+                    // Update the earnings details section with new data
+                    // You'll need to implement this based on your requirements
+                });
+        }
+    </script>

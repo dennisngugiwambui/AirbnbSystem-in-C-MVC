@@ -1,0 +1,222 @@
+﻿@model BevoBnB.ViewModels.PropertyDetailsViewModel
+
+@{
+    Layout = "_CustomerLayout";
+    
+}
+
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="mb-4 p-4 bg-red-100 text-red-700 rounded-lg">
+            @TempData["ErrorMessage"]
+        </div>
+    }
+
+    <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+        <!-- Property Header -->
+        <div class="relative h-96">
+            @if (!string.IsNullOrEmpty(Model.ImageUrl))
+            {
+                <img src="@Model.ImageUrl"
+                     alt="@Model.PropertyNumber"
+                     class="w-full h-full object-cover"
+                     onerror="this.src='/images/placeholder.jpg'">
+            }
+            else
+            {
+                <img src="/images/placeholder.jpg"
+                     alt="@Model.PropertyNumber"
+                     class="w-full h-full object-cover">
+            }
+        </div>
+
+        <div class="p-6">
+            <!-- Basic Info -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-2">
+                    <h1 class="text-3xl font-bold mb-4">@Model.PropertyNumber</h1>
+
+                    <div class="flex items-center mb-4">
+                        <span class="text-gray-600">Hosted by @Model.HostName</span>
+                        <span class="mx-2">•</span>
+                        <span class="text-gray-600">@Model.City, @Model.State</span>
+                    </div>
+
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                        <div>
+                            <span class="block text-gray-500">Bedrooms</span>
+                            <span class="font-semibold">@Model.Bedrooms</span>
+                        </div>
+                        <div>
+                            <span class="block text-gray-500">Bathrooms</span>
+                            <span class="font-semibold">@Model.Bathrooms</span>
+                        </div>
+                        <div>
+                            <span class="block text-gray-500">Max Guests</span>
+                            <span class="font-semibold">@Model.GuestsAllowed</span>
+                        </div>
+                        <div>
+                            <span class="block text-gray-500">Category</span>
+                            <span class="font-semibold">@Model.Category</span>
+                        </div>
+                    </div>
+
+                    <div class="mb-6">
+                        <h2 class="text-xl font-semibold mb-2">Features</h2>
+                        <div class="flex flex-wrap gap-4">
+                            @if (Model.PetsAllowed)
+                            {
+                                <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full">
+                                    Pets Allowed
+                                </span>
+                            }
+                            @if (Model.FreeParking)
+                            {
+                                <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full">
+                                    Free Parking
+                                </span>
+                            }
+                        </div>
+                    </div>
+
+                    <!-- Reviews Section -->
+                    @if (Model.Reviews.Any())
+                    {
+                        <div class="mt-8">
+                            <h2 class="text-xl font-semibold mb-4">
+                                Reviews (@Model.Rating.ToString("F1") ⭐ - @Model.ReviewCount reviews)
+                            </h2>
+                            <div class="space-y-6">
+                                @foreach (var review in Model.Reviews)
+                                {
+                                    <div class="border-b pb-4">
+                                        <div class="flex justify-between mb-2">
+                                            <div>
+                                                <p class="font-semibold">@review.CustomerName</p>
+                                                <div class="text-yellow-400">
+                                                    @for (int i = 0; i < review.Rating; i++)
+                                                    {
+                                                        <span>⭐</span>
+                                                    }
+                                                </div>
+                                            </div>
+                                            <span class="text-gray-500">@review.CreatedDate.ToString("MMM dd, yyyy")</span>
+                                        </div>
+                                        <p class="text-gray-600">@review.ReviewText</p>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    }
+                </div>
+                <!-- Booking Form -->
+                
+
+                <div class="lg:col-span-1">
+                    <div class="sticky top-6 bg-white rounded-xl shadow-lg p-6">
+                        <h2 class="text-xl font-semibold mb-4">Book this property</h2>
+
+                        <form asp-controller="Customer" asp-action="AddToCart" method="post"
+                              id="bookingForm" class="space-y-4">
+
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" name="PropertyID" value="@Model.PropertyID" />
+
+
+                            <div>
+                                <label asp-for="CheckIn" class="block text-sm font-medium text-gray-700">Check-in Date</label>
+                                <input asp-for="CheckIn"
+                                       type="date"
+                                       id="checkIn"
+                                       class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
+                                       min="@DateTime.Now.Date.ToString("yyyy-MM-dd")"
+                                       required />
+                                <span asp-validation-for="CheckIn" class="text-red-500 text-sm" id="checkInError"></span>
+                            </div>
+
+                            <div>
+                                <label asp-for="CheckOut" class="block text-sm font-medium text-gray-700">Check-out Date</label>
+                                <input asp-for="CheckOut"
+                                       type="date"
+                                       id="checkOut"
+                                       class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
+                                       min="@DateTime.Now.Date.AddDays(1).ToString("yyyy-MM-dd")"
+                                       required />
+                                <span asp-validation-for="CheckOut" class="text-red-500 text-sm" id="checkOutError"></span>
+                            </div>
+
+                            <div>
+                                <label asp-for="NumOfGuests" class="block text-sm font-medium text-gray-700">Number of Guests</label>
+                                <input asp-for="NumOfGuests"
+                                       type="number"
+                                       id="guests"
+                                       name="NumOfGuests"
+                                       class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
+                                       min="1"
+                                       max="@Model.GuestsAllowed"
+                                       required />
+                                <span asp-validation-for="NumOfGuests" class="text-red-500 text-sm"></span>
+                            </div>
+
+                            <button type="submit"
+                                    class="w-full py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-semibold">
+                                Add to Cart
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                    <script>
+ 
+                    document.getElementById('bookingForm').addEventListener('submit', function(e) {
+                        const checkIn = new Date(document.getElementById('checkIn').value);
+                        const checkOut = new Date(document.getElementById('checkOut').value);
+                        const today = new Date();
+                        today.setHours(0, 0, 0, 0);
+
+                        let isValid = true;
+
+                        // Clear previous error messages
+                        document.getElementById('checkInError').textContent = '';
+                        document.getElementById('checkOutError').textContent = '';
+
+                        // Validate check-in date
+                        if (checkIn < today) {
+                            document.getElementById('checkInError').textContent = 'Check-in date cannot be in the past';
+                            isValid = false;
+                        }
+
+                        // Validate check-out date
+                        if (checkOut <= checkIn) {
+                            document.getElementById('checkOutError').textContent = 'Check-out date must be after check-in date';
+                            isValid = false;
+                        }
+
+                        if (!isValid) {
+                            e.preventDefault();
+                        }
+                    });
+
+                    // Update min check-out date when check-in date changes
+                    document.getElementById('checkIn').addEventListener('change', function() {
+                        const checkInDate = new Date(this.value);
+                        const checkOutInput = document.getElementById('checkOut');
+
+                        // Set minimum check-out date to day after check-in
+                        const minCheckOut = new Date(checkInDate);
+                        minCheckOut.setDate(minCheckOut.getDate() + 1);
+
+                        checkOutInput.min = minCheckOut.toISOString().split('T')[0];
+
+                        // If current check-out date is before new minimum, update it
+                        if (new Date(checkOutInput.value) <= checkInDate) {
+                            checkOutInput.value = minCheckOut.toISOString().split('T')[0];
+                        }
+                    });
+                </script>
+                
+        
+            </div>
+        </div>
+    </div>
+</div>

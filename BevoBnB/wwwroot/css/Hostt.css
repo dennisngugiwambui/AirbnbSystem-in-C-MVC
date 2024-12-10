@@ -1,0 +1,108 @@
+﻿
+:root {
+    --host-primary: #10B981;
+    --host-secondary: #059669;
+    --host-accent: #047857;
+}
+
+/* Mobile-first approach */
+.host-layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 280px;
+    background: #1F2937;
+    transition: transform 0.3s ease;
+}
+
+.main-content {
+    flex: 1;
+    margin-left: 280px;
+    transition: margin-left 0.3s ease;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    color: #D1D5DB;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+    margin: 0.25rem 0;
+}
+
+    .nav-link:hover {
+        background: rgba(16, 185, 129, 0.1);
+        color: #10B981;
+    }
+
+    .nav-link.active {
+        background: #10B981;
+        color: white;
+    }
+
+.notification-badge {
+    background: #EF4444;
+    color: white;
+    border-radius: 9999px;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+/* Mobile responsive styles */
+@media (max-width: 768px) {
+    .sidebar {
+        position: fixed;
+        left: -280px;
+        top: 0;
+        bottom: 0;
+        z-index: 50;
+    }
+
+        .sidebar.open {
+            transform: translateX(280px);
+        }
+
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .mobile-header {
+        position: sticky;
+        top: 0;
+        z-index: 40;
+    }
+
+    .mobile-menu-button {
+        display: block;
+    }
+}
+
+/* Hide scrollbar but allow scrolling */
+.hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+    .hide-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+
+/* Animations */
+.fade-in {
+    animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

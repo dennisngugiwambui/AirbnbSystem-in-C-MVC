@@ -1,0 +1,267 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject UserManager<Users> UserManager
+@{
+    var currentUser = await UserManager.GetUserAsync(User);
+    var welcomeName = currentUser != null ? $"{currentUser.FirstName} {currentUser.LastName}" : "Guest";
+    var userInitials = currentUser != null ? $"{currentUser.FirstName[0]}{currentUser.LastName[0]}" : "GU";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"] - BevoBnB</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4F46E5;
+            --primary-dark: #4338CA;
+            --secondary: #10B981;
+            --accent: #8B5CF6;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #F3F4F6;
+        }
+
+        .sidebar {
+            width: 280px;
+            background: #1E293B;
+            box-shadow: 4px 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .main-content {
+            margin-left: 280px;
+            background: linear-gradient(180deg, #F3F4F6 0%, #FFFFFF 100%);
+        }
+
+        .nav-link {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 3px;
+            background: var(--primary);
+            transform: scaleY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .nav-link:hover::before,
+        .nav-link.active::before {
+            transform: scaleY(1);
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            background: rgba(79, 70, 229, 0.1);
+            color: white;
+        }
+
+        .avatar {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border: 2px solid white;
+            box-shadow: 0 0 0 2px var(--primary);
+        }
+
+        .profile-dropdown {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            min-width: 200px;
+        }
+
+        .notification-badge {
+            position: relative;
+        }
+
+        .notification-badge::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 8px;
+            height: 8px;
+            background: #EF4444;
+            border-radius: 50%;
+            border: 2px solid white;
+        }
+
+        .welcome-gradient {
+            background: linear-gradient(135deg, #4F46E5 0%, #8B5CF6 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .top-bar {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            padding: 1rem 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .logout-btn {
+            background: #EF4444;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .logout-btn:hover {
+            background: #DC2626;
+            transform: translateY(-1px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar fixed top-0 left-0 h-full z-30 flex flex-col">
+        <div class="flex items-center justify-between p-6 border-b border-gray-700">
+            <div class="flex items-center space-x-3">
+                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                </svg>
+                <span class="text-xl font-bold text-white">BevoBnB</span>
+            </div>
+        </div>
+
+        <nav class="flex-1 p-6">
+            <ul class="space-y-4">
+                <li>
+                    <a asp-controller="Customer" asp-action="Index"
+                       class="nav-link flex items-center space-x-3 p-3 rounded-lg text-gray-300 hover:text-white
+                      @(ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                        </svg>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a asp-controller="Customer" asp-action="MyBookings"
+                       class="nav-link flex items-center space-x-3 p-3 rounded-lg text-gray-300 hover:text-white
+                      @(ViewContext.RouteData.Values["Action"].ToString() == "MyBookings" ? "active" : "")">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                        </svg>
+                        <span>My Bookings</span>
+                    </a>
+                </li>
+                <li>
+                    <a asp-controller="Customer" asp-action="Explore"
+                       class="nav-link flex items-center space-x-3 p-3 rounded-lg text-gray-300 hover:text-white
+                      @(ViewContext.RouteData.Values["Action"].ToString() == "Explore" ? "active" : "")">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                        <span>Explore</span>
+                    </a>
+                </li>
+                <li>
+                    <a asp-controller="Customer" asp-action="Favorites"
+                       class="nav-link flex items-center space-x-3 p-3 rounded-lg text-gray-300 hover:text-white
+                      @(ViewContext.RouteData.Values["Action"].ToString() == "Favorites" ? "active" : "")">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                        </svg>
+                        <span>Favorites</span>
+                    </a>
+                </li>
+                <li>
+                    <a asp-controller="Customer" asp-action="Profile"
+                       class="nav-link flex items-center space-x-3 p-3 rounded-lg text-gray-300 hover:text-white
+                      @(ViewContext.RouteData.Values["Action"].ToString() == "Profile" ? "active" : "")">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                        </svg>
+                        <span>Profile</span>
+                    </a>
+                </li>
+                <li>
+                    <a asp-controller="Customer" asp-action="Settings"
+                       class="nav-link flex items-center space-x-3 p-3 rounded-lg text-gray-300 hover:text-white
+                      @(ViewContext.RouteData.Values["Action"].ToString() == "Settings" ? "active" : "")">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                            <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                        <span>Settings</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Profile Section -->
+        <div class="p-6 border-t border-gray-700">
+            <div class="flex items-center space-x-3 mb-4">
+                <div class="avatar">@userInitials</div>
+                <div>
+                    <div class="text-white font-medium">@welcomeName</div>
+                    <div class="text-gray-400 text-sm">@currentUser?.Email</div>
+                </div>
+            </div>
+            <form asp-controller="Home" asp-action="Logout" method="post" class="w-full">
+                @Html.AntiForgeryToken()
+                <button type="submit" class="logout-btn w-full py-2 px-4 rounded-lg flex items-center justify-center space-x-2 transition-all">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
+                    </svg>
+                    <span>Logout</span>
+                </button>
+            </form>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content min-h-screen p-8">
+        <!-- Top Bar -->
+        <div class="top-bar flex justify-between items-center">
+            <div>
+                <h1 class="text-3xl font-bold welcome-gradient">@ViewData["WelcomeMessage"]</h1>
+                <p class="text-gray-600">@ViewData["SubMessage"]</p>
+            </div>
+            <div class="flex items-center space-x-6">
+                <button class="p-2 rounded-full hover:bg-gray-100 relative notification-badge">
+                    <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+                    </svg>
+                </button>
+                <div class="flex items-center space-x-3">
+                    <div class="avatar">@userInitials</div>
+                    <div class="text-sm">
+                        <div class="font-medium text-gray-900">@welcomeName</div>
+                        <div class="text-gray-500">Customer</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @RenderBody()
+    </main>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

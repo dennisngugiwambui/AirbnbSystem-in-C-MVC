@@ -1,0 +1,78 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+@using BevoBnB.ViewModels;
+@using BevoBnB.Models;
+
+@model EditUserViewModel
+
+<div class="bg-white shadow-lg rounded-lg p-6 max-w-3xl mx-auto">
+    <h2 class="text-2xl font-bold mb-6">Edit User</h2>
+
+    <form asp-action="EditUser" method="post">
+        <input type="hidden" asp-for="Id" />
+
+        <div class="grid grid-cols-2 gap-6">
+            <div>
+                <label asp-for="Email" class="block text-sm font-medium text-gray-700"></label>
+                <input asp-for="Email" class="mt-1 w-full rounded-md border-gray-300 shadow-sm" readonly />
+            </div>
+
+            <div>
+                <label asp-for="FirstName" class="block text-sm font-medium text-gray-700"></label>
+                <input asp-for="FirstName" class="mt-1 w-full rounded-md border-gray-300 shadow-sm" />
+                <span asp-validation-for="FirstName" class="text-red-500 text-sm"></span>
+            </div>
+
+            <div>
+                <label asp-for="LastName" class="block text-sm font-medium text-gray-700"></label>
+                <input asp-for="LastName" class="mt-1 w-full rounded-md border-gray-300 shadow-sm" />
+                <span asp-validation-for="LastName" class="text-red-500 text-sm"></span>
+            </div>
+
+            <div>
+                <label asp-for="Phone" class="block text-sm font-medium text-gray-700"></label>
+                <input asp-for="Phone" class="mt-1 w-full rounded-md border-gray-300 shadow-sm" />
+                <span asp-validation-for="Phone" class="text-red-500 text-sm"></span>
+            </div>
+
+            <div class="col-span-2">
+                <label asp-for="Address" class="block text-sm font-medium text-gray-700"></label>
+                <input asp-for="Address" class="mt-1 w-full rounded-md border-gray-300 shadow-sm" />
+                <span asp-validation-for="Address" class="text-red-500 text-sm"></span>
+            </div>
+
+            <div>
+                <label asp-for="NewPassword" class="block text-sm font-medium text-gray-700"></label>
+                <input asp-for="NewPassword" type="password" class="mt-1 w-full rounded-md border-gray-300 shadow-sm" />
+                <span asp-validation-for="NewPassword" class="text-red-500 text-sm"></span>
+            </div>
+
+            <div>
+                <label asp-for="ConfirmNewPassword" class="block text-sm font-medium text-gray-700"></label>
+                <input asp-for="ConfirmNewPassword" type="password" class="mt-1 w-full rounded-md border-gray-300 shadow-sm" />
+                <span asp-validation-for="ConfirmNewPassword" class="text-red-500 text-sm"></span>
+            </div>
+
+            <div class="col-span-2">
+                <label class="inline-flex items-center">
+                    <input asp-for="HireStatus" type="checkbox" class="rounded border-gray-300 text-blue-600 shadow-sm" />
+                    <span class="ml-2">Active Account</span>
+                </label>
+            </div>
+        </div>
+
+        <div class="mt-6 flex justify-end space-x-3">
+            <a asp-action="ManageUsers" class="px-4 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50">
+                Cancel
+            </a>
+            <button type="submit" class="px-4 py-2 border border-transparent rounded-md text-sm font-medium text-white bg-blue-600 hover:bg-blue-700">
+                Save Changes
+            </button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,126 @@
+﻿@using BevoBnB.ViewModels;
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model AdminReportViewModel
+
+<div class="container mx-auto px-4">
+    <!-- Date Filter -->
+    <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+        <form method="get" class="flex items-end gap-4">
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Start Date</label>
+                <input type="date" name="startDate" value="@Model.StartDate?.ToString("yyyy-MM-dd")"
+                       class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">End Date</label>
+                <input type="date" name="endDate" value="@Model.EndDate?.ToString("yyyy-MM-dd")"
+                       class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">
+            </div>
+            <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+                Update Report
+            </button>
+            <button type="submit" formaction="@Url.Action("ExportReport")" formmethod="post"
+                    class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700">
+                Export CSV
+            </button>
+        </form>
+    </div>
+
+    <!-- Summary Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+        <div class="bg-white rounded-lg shadow-md p-6">
+            <h3 class="text-gray-500 text-sm">Total Reservations</h3>
+            <p class="text-2xl font-bold">@Model.TotalReservations</p>
+        </div>
+        <div class="bg-white rounded-lg shadow-md p-6">
+            <h3 class="text-gray-500 text-sm">Total Commission</h3>
+            <p class="text-2xl font-bold">@Model.TotalCommission.ToString("C")</p>
+        </div>
+        <div class="bg-white rounded-lg shadow-md p-6">
+            <h3 class="text-gray-500 text-sm">Average Commission</h3>
+            <p class="text-2xl font-bold">@Model.AverageCommissionPerReservation.ToString("C")</p>
+        </div>
+        <div class="bg-white rounded-lg shadow-md p-6">
+            <h3 class="text-gray-500 text-sm">Total Properties</h3>
+            <p class="text-2xl font-bold">@Model.TotalProperties</p>
+        </div>
+    </div>
+
+    <!-- Charts -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <!-- Monthly Revenue Chart -->
+        <div class="bg-white rounded-lg shadow-md p-6">
+            <h3 class="text-lg font-semibold mb-4">Monthly Revenue</h3>
+            <canvas id="revenueChart"></canvas>
+        </div>
+
+        <!-- Reservations by City -->
+        <div class="bg-white rounded-lg shadow-md p-6">
+            <h3 class="text-lg font-semibold mb-4">Reservations by City</h3>
+            <canvas id="cityChart"></canvas>
+        </div>
+
+        <!-- Revenue by Category -->
+        <div class="bg-white rounded-lg shadow-md p-6">
+            <h3 class="text-lg font-semibold mb-4">Revenue by Category</h3>
+            <canvas id="categoryChart"></canvas>
+        </div>
+    </div>
+</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Monthly Revenue Chart
+        const revenueCtx = document.getElementById('revenueChart').getContext('2d');
+        new Chart(revenueCtx, {
+            type: 'line',
+            data: {
+                labels: @Json.Serialize(Model.MonthlyRevenue.Select(m => m.Month)),
+                datasets: [{
+                    label: 'Revenue',
+                    data: @Json.Serialize(Model.MonthlyRevenue.Select(m => m.Revenue)),
+                    borderColor: 'rgb(59, 130, 246)',
+                    tension: 0.1
+                }]
+            }
+        });
+
+        // City Chart
+        const cityCtx = document.getElementById('cityChart').getContext('2d');
+        new Chart(cityCtx, {
+            type: 'bar',
+            data: {
+                labels: @Json.Serialize(Model.ReservationsByCity.Keys),
+                datasets: [{
+                    label: 'Reservations',
+                    data: @Json.Serialize(Model.ReservationsByCity.Values),
+                    backgroundColor: 'rgb(59, 130, 246)'
+                }]
+            }
+        });
+
+        // Category Chart
+        const categoryCtx = document.getElementById('categoryChart').getContext('2d');
+        new Chart(categoryCtx, {
+            type: 'pie',
+            data: {
+                labels: @Json.Serialize(Model.RevenueByCategory.Keys),
+                datasets: [{
+                    data: @Json.Serialize(Model.RevenueByCategory.Values),
+                    backgroundColor: [
+                        'rgb(59, 130, 246)',
+                        'rgb(16, 185, 129)',
+                        'rgb(245, 158, 11)',
+                        'rgb(239, 68, 68)',
+                        'rgb(139, 92, 246)'
+                    ]
+                }]
+            }
+        });
+    </script>

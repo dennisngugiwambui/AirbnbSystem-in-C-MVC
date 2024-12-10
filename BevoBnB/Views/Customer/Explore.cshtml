@@ -1,0 +1,182 @@
+﻿@model IEnumerable<BevoBnB.ViewModels.ExploreViewModel>
+@{
+    Layout = "_CustomerLayout";
+    ViewData["Title"] = "Explore Properties - BevoBnB";
+    ViewData["WelcomeMessage"] = "Explore Properties";
+    ViewData["SubMessage"] = "Find your perfect stay";
+}
+
+<div class="space-y-6">
+    <!-- Search Filters -->
+    <div class="bg-white rounded-xl shadow-sm p-6">
+        <form asp-action="Explore" method="get" class="grid grid-cols-1 md:grid-cols-4 gap-4">
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Location</label>
+                <input type="text" name="location" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+                       placeholder="City or State">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Check-in</label>
+                <input type="date" name="checkIn" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Check-out</label>
+                <input type="date" name="checkOut" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Guests</label>
+                <input type="number" name="guests" min="1" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Category</label>
+                <select name="categoryId" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                    <option value="">All Categories</option>
+                    @if (ViewBag.Categories != null)
+                    {
+                        @foreach (var category in ViewBag.Categories)
+                        {
+                            <option value="@category.CategoryID">@category.CategoryName</option>
+                        }
+                    }
+                </select>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Price Range</label>
+                <select name="priceRange" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                    <option value="">Any Price</option>
+                    <option value="0-100">Under $100</option>
+                    <option value="100-200">$100 - $200</option>
+                    <option value="200-300">$200 - $300</option>
+                    <option value="300+">$300+</option>
+                </select>
+            </div>
+            <div class="flex items-end">
+                <button type="submit" class="w-full px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                    Search
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Property Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        @foreach (var property in Model)
+        {
+            <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-all transform hover:-translate-y-1">
+                <!-- Property Image and Category Badge -->
+                <div class="relative">
+                    <img src="@property.ImageUrl" alt="@property.PropertyNumber" class="w-full h-48 object-cover"
+                         onerror="this.src='/images/placeholder.jpg'">
+                    <div class="absolute top-4 right-4">
+                        <button class="p-2 bg-white rounded-full shadow-md hover:bg-gray-100 transition-colors">
+                            <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="absolute bottom-4 left-4">
+                        <span class="px-3 py-1 bg-blue-600 text-white text-sm rounded-full">
+                            @property.Category
+                        </span>
+                        @if (property.DiscountRate > 0)
+                        {
+                            <span class="ml-2 px-3 py-1 bg-green-600 text-white text-sm rounded-full">
+                                @(property.DiscountRate)% OFF
+                            </span>
+                        }
+                    </div>
+                </div>
+
+                <!-- Property Details -->
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">@property.PropertyNumber</h3>
+                            <p class="text-sm text-gray-600 mb-1">Hosted by @property.HostName</p>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                </svg>
+                                @property.City, @property.State
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                            </svg>
+                            <span class="ml-1 text-sm font-medium text-gray-600">
+                                @property.AverageRating.ToString("F1") (@property.ReviewCount reviews)
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Amenities -->
+                    <div class="flex items-center space-x-4 text-sm text-gray-600 mb-4">
+                        <div class="flex items-center">
+                            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                            </svg>
+                            @property.Bedrooms BD
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v6a2 2 0 002 2h2v-2"></path>
+                            </svg>
+                            @property.Bathrooms BA
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                            </svg>
+                            @property.GuestsAllowed Guests
+                        </div>
+                        @if (property.FreeParking)
+                        {
+                            <div class="flex items-center">
+                                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+                                </svg>
+                                Free Parking
+                            </div>
+                        }
+                    </div>
+
+                    <!-- Booking Form -->
+                    <form asp-action="AddToCart" method="post" class="mt-4 space-y-3">
+                        <input type="hidden" name="propertyId" value="@property.PropertyID" />
+                        <div class="grid grid-cols-2 gap-2">
+                            <div>
+                                <label class="block text-sm text-gray-600">Check-in</label>
+                                <input type="date" name="checkIn" required class="w-full px-3 py-2 border rounded" />
+                            </div>
+                            <div>
+                                <label class="block text-sm text-gray-600">Check-out</label>
+                                <input type="date" name="checkOut" required class="w-full px-3 py-2 border rounded" />
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm text-gray-600">Guests</label>
+                            <input type="number" name="guests" required min="1" max="@property.GuestsAllowed"
+                                   class="w-full px-3 py-2 border rounded" />
+                        </div>
+                        <button type="submit" class="w-full py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
+                            Book Now - From @property.WeekdayPrice.ToString("C")/night
+                        </button>
+                    </form>
+                </div>
+            </div>
+        }
+    </div>
+
+
+    @if (!Model.Any())
+    {
+        <div class="text-center py-12">
+            <svg class="mx-auto h-12 w-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+            </svg>
+            <h3 class="mt-2 text-sm font-medium text-gray-900">No properties found</h3>
+            <p class="mt-1 text-sm text-gray-500">Try adjusting your search filters or explore different dates.</p>
+        </div>
+    }
+    </div>

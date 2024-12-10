@@ -1,0 +1,301 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+@model IEnumerable<Reservation>
+
+
+@{
+    Layout = "_CustomerLayout";
+    ViewData["Title"] = "My Bookings - BevoBnB";
+    ViewData["WelcomeMessage"] = "My Bookings";
+    ViewData["SubMessage"] = "Manage your current and upcoming stays";
+}
+
+
+<link href="/css/customer.css" rel="stylesheet" />
+
+<div class="space-y-6">
+    <!-- Booking Stats -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white rounded-xl shadow-sm p-6">
+            <div class="flex items-center justify-between mb-4">
+                <h3 class="text-lg font-semibold text-gray-900">Active Bookings</h3>
+                <div class="p-2 bg-blue-50 text-blue-600 rounded-lg">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                    </svg>
+                </div>
+            </div>
+            <p class="text-3xl font-bold text-gray-900">@Model.Count(r => r.CheckOut > DateTime.Now)</p>
+            <p class="text-sm text-gray-600 mt-2">Currently active reservations</p>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-sm p-6">
+            <div class="flex items-center justify-between mb-4">
+                <h3 class="text-lg font-semibold text-gray-900">Total Spent</h3>
+                <div class="p-2 bg-green-50 text-green-600 rounded-lg">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                </div>
+            </div>
+            <p class="text-3xl font-bold text-gray-900">@Model.Sum(r => r.Total).ToString("C")</p>
+            <p class="text-sm text-gray-600 mt-2">Total amount spent on bookings</p>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-sm p-6">
+            <div class="flex items-center justify-between mb-4">
+                <h3 class="text-lg font-semibold text-gray-900">Completed Stays</h3>
+                <div class="p-2 bg-purple-50 text-purple-600 rounded-lg">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
+                    </svg>
+                </div>
+            </div>
+            <p class="text-3xl font-bold text-gray-900">@Model.Count(r => r.CheckOut < DateTime.Now)</p>
+            <p class="text-sm text-gray-600 mt-2">Successfully completed stays</p>
+        </div>
+    </div>
+
+    <!-- Active Bookings -->
+    <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+        <div class="p-6 border-b border-gray-200">
+            <h2 class="text-xl font-bold text-gray-900">Active Bookings</h2>
+        </div>
+        <div class="divide-y divide-gray-200">
+            @foreach (var booking in Model.Where(r => r.CheckOut > DateTime.Now && r.ReservationStatus == ReservationStatus.Confirmed))
+            {
+                <div class="p-6 flex flex-col md:flex-row items-start md:items-center justify-between hover:bg-gray-50 transition-colors">
+                    <div class="flex items-center space-x-4">
+                        <img src="/api/placeholder/96/96" alt="@booking.Property.PropertyNumber" class="w-24 h-24 rounded-lg object-cover">
+                        <div>
+                            <h3 class="font-semibold text-gray-900">@booking.Property.PropertyNumber</h3>
+                            <p class="text-gray-600">@booking.CheckIn.ToString("MMM dd") - @booking.CheckOut.ToString("MMM dd, yyyy")</p>
+                            <div class="flex items-center space-x-2 mt-1">
+                                <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                </svg>
+                                <span class="text-sm text-gray-600">@booking.Property.City, @booking.Property.State</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4 md:mt-0 flex items-center space-x-4">
+                        <div class="text-right">
+                            <div class="text-lg font-bold text-gray-900">@booking.Total.ToString("C")</div>
+                            <div class="text-sm text-gray-500">Total Amount</div>
+                        </div>
+                        <a href="#" class="btn-primary">View Details</a>
+                        @if (booking.CheckIn > DateTime.Now.AddDays(1))
+                        {
+                            <form asp-action="CancelBooking" asp-route-id="@booking.ReservationID" method="post" class="inline">
+                                @Html.AntiForgeryToken()
+                                <button type="submit" class="btn-danger" onclick="return confirm('Are you sure you want to cancel this booking?')">
+                                    Cancel
+                                </button>
+                            </form>
+                        }
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    <!-- Past Bookings Section -->
+    <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+        <div class="p-6 border-b border-gray-200">
+            <h2 class="text-xl font-bold text-gray-900">Past Bookings</h2>
+        </div>
+        <div class="divide-y divide-gray-200">
+            @foreach (var booking in Model.Where(r => r.CheckOut < DateTime.Now).OrderByDescending(r => r.CheckOut))
+            {
+                <div class="p-6 flex flex-col md:flex-row items-start md:items-center justify-between hover:bg-gray-50 transition-colors">
+                    <div class="flex items-center space-x-4">
+                        <img src="@booking.Property.ImageUrl" alt="@booking.Property.PropertyNumber"
+                             class="w-24 h-24 rounded-lg object-cover"
+                             onerror="this.src='/images/placeholder.jpg'">
+                        <div>
+                            <h3 class="font-semibold text-gray-900">@booking.Property.PropertyNumber</h3>
+                            <p class="text-gray-600">@booking.CheckIn.ToString("MMM dd") - @booking.CheckOut.ToString("MMM dd, yyyy")</p>
+                            <div class="flex items-center space-x-2 mt-1">
+                                <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                </svg>
+                                <span class="text-sm text-gray-600">@booking.Property.City, @booking.Property.State</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4 md:mt-0 flex flex-col items-end space-y-2">
+                        <div class="text-right">
+                            <div class="text-lg font-bold text-gray-900">@booking.Total.ToString("C")</div>
+                            <div class="text-sm text-gray-500">Total Amount</div>
+                        </div>
+                        @{
+                            var hasReviewed = await Component.InvokeAsync("HasUserReviewed",
+                            new { propertyId = booking.PropertyID, customerId = booking.CustomerID });
+                        }
+                        @if (hasReviewed.ToString().Trim() != "True")
+                        {
+                            <button type="button"
+                                    onclick="openRatingModal(@booking.PropertyID)"
+                                    class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                                Rate Your Stay
+                            </button>
+                        }
+                        else
+                        {
+                            <span class="text-green-600 flex items-center">
+                                <svg class="w-5 h-5 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                Reviewed
+                            </span>
+                        }
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+    <!-- Rating Modal -->
+    <div id="ratingModal" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50">
+        <div class="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
+            <form id="ratingForm" method="post" class="space-y-4">
+                @Html.AntiForgeryToken()
+                <input type="hidden" id="propertyId" name="propertyId" />
+
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-lg font-semibold">Rate Your Stay</h3>
+                    <button type="button" onclick="closeRatingModal()" class="text-gray-400 hover:text-gray-500">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Rating</label>
+                    <div class="flex space-x-2">
+                        @for (int i = 1; i <= 5; i++)
+                        {
+                            <button type="button" onclick="setRating(@i)" class="rating-star text-gray-300 hover:text-yellow-400">
+                                <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                            </button>
+                        }
+                    </div>
+                    <input type="hidden" id="rating" name="rating" required />
+                </div>
+
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Review</label>
+                    <textarea name="reviewText"
+                              class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                              rows="4"
+                              maxlength="280"
+                              placeholder="Share your experience..."
+                              required></textarea>
+                </div>
+
+                <div class="flex justify-end space-x-2">
+                    <button type="button" onclick="closeRatingModal()"
+                            class="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-md">
+                        Cancel
+                    </button>
+                    <button type="submit"
+                            class="px-4 py-2 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-md">
+                        Submit Review
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        function openRatingModal(propertyId) {
+            console.log('Opening modal for property:', propertyId); // Debug log
+            document.getElementById('propertyId').value = propertyId;
+            const modal = document.getElementById('ratingModal');
+            if (modal) {
+                modal.classList.remove('hidden');
+                resetRatingForm();
+            } else {
+                console.error('Rating modal not found'); // Debug log
+            }
+        }
+
+        function closeRatingModal() {
+            const modal = document.getElementById('ratingModal');
+            if (modal) {
+                modal.classList.add('hidden');
+                resetRatingForm();
+            }
+        }
+
+        function setRating(rating) {
+            const ratingInput = document.getElementById('rating');
+            if (ratingInput) {
+                ratingInput.value = rating;
+                const stars = document.querySelectorAll('.rating-star');
+                stars.forEach((star, index) => {
+                    if (index < rating) {
+                        star.classList.remove('text-gray-300');
+                        star.classList.add('text-yellow-400');
+                    } else {
+                        star.classList.remove('text-yellow-400');
+                        star.classList.add('text-gray-300');
+                    }
+                });
+            }
+        }
+
+        function resetRatingForm() {
+            const form = document.getElementById('ratingForm');
+            if (form) {
+                form.reset();
+                setRating(0);
+                const stars = document.querySelectorAll('.rating-star');
+                stars.forEach(star => {
+                    star.classList.remove('text-yellow-400');
+                    star.classList.add('text-gray-300');
+                });
+            }
+        }
+
+        // Add event listeners when the document is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            const ratingForm = document.getElementById('ratingForm');
+            if (ratingForm) {
+                ratingForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+
+                    const formData = new FormData(this);
+
+                    fetch('/Customer/SubmitReview', {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'RequestVerificationToken': document.querySelector('input[name="__RequestVerificationToken"]').value
+                        }
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            closeRatingModal();
+                            location.reload();
+                        } else {
+                            alert(data.message || 'Error submitting review. Please try again.');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        alert('Error submitting review. Please try again.');
+                    });
+                });
+            }
+        });
+    </script>
+
+</div>

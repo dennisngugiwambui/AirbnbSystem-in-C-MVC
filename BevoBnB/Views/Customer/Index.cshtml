@@ -1,0 +1,174 @@
+﻿@{
+    Layout = "_CustomerLayout";
+    ViewData["Title"] = "Dashboard - BevoBnB";
+    ViewData["WelcomeMessage"] = "Welcome back, " + User?.Identity?.Name?.Split('@')[0] + "!";
+    ViewData["SubMessage"] = "Here's what's happening with your bookings";
+
+    var upcomingBookings = ViewBag.UpcomingBookings as List<dynamic>;
+    var recentActivities = ViewBag.RecentActivities as List<dynamic>;
+}
+
+<!-- Stats Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+    <div class="stat-card bg-white p-6 rounded-xl shadow-sm">
+        <div class="flex items-center justify-between mb-4">
+            <div class="text-sm font-medium text-gray-600">Active Bookings</div>
+            <div class="p-2 bg-blue-50 text-blue-600 rounded-lg">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                </svg>
+            </div>
+        </div>
+        <div class="text-2xl font-bold text-gray-900">@(ViewBag.ActiveBookings ?? 0)</div>
+        <div class="text-sm text-green-600 mt-2">↑ @(ViewBag.BookingsIncrease ?? 0) from last month</div>
+    </div>
+
+    <div class="stat-card bg-white p-6 rounded-xl shadow-sm">
+        <div class="flex items-center justify-between mb-4">
+            <div class="text-sm font-medium text-gray-600">Total Spent</div>
+            <div class="p-2 bg-green-50 text-green-600 rounded-lg">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+            </div>
+        </div>
+        <div class="text-2xl font-bold text-gray-900">@((ViewBag.TotalSpent ?? 0).ToString("C"))</div>
+        <div class="text-sm text-green-600 mt-2">↑ @((ViewBag.SpendingIncrease ?? 0).ToString("C")) from last month</div>
+    </div>
+
+    <div class="stat-card bg-white p-6 rounded-xl shadow-sm">
+        <div class="flex items-center justify-between mb-4">
+            <div class="text-sm font-medium text-gray-600">Saved Places</div>
+            <div class="p-2 bg-red-50 text-red-600 rounded-lg">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                </svg>
+            </div>
+        </div>
+        <div class="text-2xl font-bold text-gray-900">@(ViewBag.SavedPlaces ?? 0)</div>
+        <div class="text-sm text-green-600 mt-2">↑ @(ViewBag.NewSavedPlaces ?? 0) new places added</div>
+    </div>
+
+    <div class="stat-card bg-white p-6 rounded-xl shadow-sm">
+        <div class="flex items-center justify-between mb-4">
+            <div class="text-sm font-medium text-gray-600">Reviews Given</div>
+            <div class="p-2 bg-yellow-50 text-yellow-600 rounded-lg">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path>
+                </svg>
+            </div>
+        </div>
+        <div class="text-2xl font-bold text-gray-900">@(ViewBag.ReviewsGiven ?? 0)</div>
+        <div class="text-sm text-green-600 mt-2">↑ @(ViewBag.NewReviews ?? 0) new reviews</div>
+    </div>
+</div>
+
+<!-- Upcoming Bookings -->
+<div class="bg-white rounded-xl shadow-sm p-6 mb-8">
+    <h2 class="text-lg font-bold text-gray-900 mb-4">Upcoming Bookings</h2>
+    <div class="space-y-4">
+        @if (upcomingBookings != null && upcomingBookings.Count > 0)
+        {
+            foreach (var booking in upcomingBookings)
+            {
+                <div class="booking-card flex items-center justify-between p-4 border border-gray-100 rounded-lg hover:border-gray-200">
+                    <div class="flex items-center space-x-4">
+                        <img src="@booking.PropertyImage" alt="@booking.PropertyName" class="w-24 h-24 rounded-lg object-cover">
+                        <div>
+                            <h3 class="font-semibold text-gray-900">@booking.PropertyName</h3>
+                            <p class="text-gray-600">@(((DateTime)booking.CheckIn).ToString("MMM dd")) - @(((DateTime)booking.CheckOut).ToString("MMM dd, yyyy"))</p>
+                            <div class="flex items-center space-x-2 mt-1">
+                                <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                </svg>
+                                <span class="text-sm text-gray-600">@booking.Location</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <div class="text-lg font-bold text-gray-900">@(((decimal)booking.PricePerNight).ToString("C"))/night</div>
+                        <a asp-controller="Customer" asp-action="BookingDetails" asp-route-id="@booking.Id"
+                           class="mt-2 px-4 py-2 text-sm text-blue-600 border border-blue-600 rounded-lg hover:bg-blue-50 inline-block">
+                            View Details
+                        </a>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="text-center py-8 text-gray-500">
+                <p>No upcoming bookings found.</p>
+                <a asp-controller="Customer" asp-action="Explore" class="text-blue-600 hover:text-blue-800 mt-2 inline-block">
+                    Explore properties
+                </a>
+            </div>
+        }
+    </div>
+</div>
+
+<!-- Recent Activity & Quick Actions -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+    <!-- Recent Activity -->
+    <div class="bg-white rounded-xl shadow-sm p-6">
+        <h2 class="text-lg font-bold text-gray-900 mb-4">Recent Activity</h2>
+        <div class="space-y-4">
+            @if (recentActivities != null && recentActivities.Count > 0)
+            {
+                foreach (var activity in recentActivities)
+                {
+                    <div class="flex items-start space-x-4">
+                        <div class="p-2 @activity.IconBackground rounded-lg">
+                            <svg class="w-6 h-6 @activity.IconColor" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                @Html.Raw(activity.IconPath)
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="text-gray-900">@activity.Description</p>
+                            <p class="text-sm text-gray-600">@activity.TimeAgo</p>
+                        </div>
+                    </div>
+                }
+            }
+            else
+            {
+                <p class="text-center text-gray-500 py-4">No recent activity</p>
+            }
+        </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="bg-white rounded-xl shadow-sm p-6">
+        <h2 class="text-lg font-bold text-gray-900 mb-4">Quick Actions</h2>
+        <div class="grid grid-cols-2 gap-4">
+            <a asp-controller="Customer" asp-action="Explore"
+               class="flex items-center justify-center space-x-2 p-4 border border-gray-200 rounded-lg hover:border-gray-300 hover:bg-gray-50">
+                <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                </svg>
+                <span class="font-medium">Search Stays</span>
+            </a>
+            <a asp-controller="Customer" asp-action="Book"
+               class="flex items-center justify-center space-x-2 p-4 border border-gray-200 rounded-lg hover:border-gray-300 hover:bg-gray-50">
+                <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                </svg>
+                <span class="font-medium">Book Stay</span>
+            </a>
+            <a asp-controller="Customer" asp-action="ContactHost"
+               class="flex items-center justify-center space-x-2 p-4 border border-gray-200 rounded-lg hover:border-gray-300 hover:bg-gray-50">
+                <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                </svg>
+                <span class="font-medium">Contact Host</span>
+            </a>
+            <a asp-controller="Customer" asp-action="Reviews"
+               class="flex items-center justify-center space-x-2 p-4 border border-gray-200 rounded-lg hover:border-gray-300 hover:bg-gray-50">
+                <svg class="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path>
+                </svg>
+                <span class="font-medium">Leave Review</span>
+            </a>
+        </div>
+    </div>
+</div>

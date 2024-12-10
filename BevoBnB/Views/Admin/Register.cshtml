@@ -1,0 +1,54 @@
+﻿
+@using BevoBnB.ViewModels;
+@using BevoBnB.Models;
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+@model RegisterViewModel
+
+<div class="container mx-auto px-4 py-8">
+    <div class="max-w-2xl mx-auto bg-white rounded-lg shadow-md">
+        <div class="px-6 py-4 border-b border-gray-200">
+            <h2 class="text-xl font-bold">Register New @Model.UserType</h2>
+        </div>
+
+        <form asp-action="Register@(Model.UserType)" method="post" class="p-6">
+            <div asp-validation-summary="ModelOnly" class="text-red-500 mb-4"></div>
+
+            <div class="grid grid-cols-2 gap-4 mb-4">
+                <div>
+                    <label asp-for="FirstName" class="block text-sm font-medium text-gray-700">First Name</label>
+                    <input asp-for="FirstName" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500" />
+                    <span asp-validation-for="FirstName" class="text-red-500 text-sm"></span>
+                </div>
+                <div>
+                    <label asp-for="LastName" class="block text-sm font-medium text-gray-700">Last Name</label>
+                    <input asp-for="LastName" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500" />
+                    <span asp-validation-for="LastName" class="text-red-500 text-sm"></span>
+                </div>
+            </div>
+
+            <div class="mb-4">
+                <label asp-for="Email" class="block text-sm font-medium text-gray-700">Email</label>
+                <input asp-for="Email" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500" />
+                <span asp-validation-for="Email" class="text-red-500 text-sm"></span>
+            </div>
+
+            <!-- Add other fields similarly -->
+
+            <div class="flex justify-end space-x-2">
+                <a asp-action="ManageUsers" class="bg-gray-100 text-gray-700 hover:bg-gray-200 px-4 py-2 rounded">Cancel</a>
+                <button type="submit" class="bg-blue-500 text-white hover:bg-blue-600 px-4 py-2 rounded">Register</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

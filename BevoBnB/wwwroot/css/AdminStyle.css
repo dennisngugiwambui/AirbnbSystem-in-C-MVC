@@ -1,0 +1,58 @@
+﻿.sidebar {
+    width: 280px;
+    transition: all 0.3s ease;
+}
+
+.main-content {
+    margin-left: 280px;
+    transition: all 0.3s ease;
+}
+
+.stat-card {
+    transition: all 0.3s ease;
+}
+
+    .stat-card:hover {
+        transform: translateY(-4px);
+    }
+
+.chart-container {
+    height: 300px;
+    width: 100%;
+}
+
+@media (max-width: 1024px) {
+    .sidebar {
+        margin-left: -280px;
+    }
+
+        .sidebar.active {
+            margin-left: 0;
+        }
+
+    .main-content {
+        margin-left: 0;
+    }
+}
+
+.status-badge {
+    padding: 2px 8px;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+    .status-badge.active {
+        background-color: #DEF7EC;
+        color: #03543F;
+    }
+
+    .status-badge.pending {
+        background-color: #FEF3C7;
+        color: #92400E;
+    }
+
+    .status-badge.suspended {
+        background-color: #FEE2E2;
+        color: #991B1B;
+    }

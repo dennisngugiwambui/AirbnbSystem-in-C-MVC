@@ -1,0 +1,53 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model BevoBnB.ViewModels.SuccessViewModel
+
+@{
+    ViewData["Title"] = "Booking Confirmed";
+    Layout = "_CustomerLayout";
+}
+
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div class="bg-white rounded-xl shadow-lg overflow-hidden p-6 text-center">
+        <div class="mb-6">
+            <div class="w-16 h-16 bg-green-100 rounded-full mx-auto flex items-center justify-center">
+                <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+            </div>
+        </div>
+
+        <h1 class="text-2xl font-bold mb-2">Booking Confirmed!</h1>
+        <p class="text-gray-600 mb-4">Thank you for your booking</p>
+
+        <div class="bg-gray-50 rounded-lg p-4 mb-6">
+            <p class="text-gray-600">Confirmation Number</p>
+            <p class="text-2xl font-semibold">@Model.ConfirmationNumber</p>
+            <p class="text-sm text-gray-500">Booked on @Model.BookingDate.ToString("MMM dd, yyyy")</p>
+        </div>
+
+        <div class="bg-gray-50 rounded-lg p-4 mb-6">
+            <h3 class="font-semibold mb-2">Booking Details</h3>
+            
+        </div>
+
+        <p class="text-gray-600 mb-6">
+            A confirmation email has been sent to your registered email address.
+            Your booking status is pending and will be confirmed by the host.
+        </p>
+
+        <div class="flex justify-center space-x-4">
+            <a asp-action="MyBookings" 
+               class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                View My Bookings
+            </a>
+            <a asp-action="Explore" 
+               class="px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 transition-colors">
+                Continue Browsing
+            </a>
+        </div>
+    </div>
+</div>

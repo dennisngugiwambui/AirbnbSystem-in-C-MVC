@@ -1,0 +1,156 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container mx-auto px-4">
+            <div class="hero-content max-w-4xl">
+                <h1 class="hero-title">Find Your Perfect Stay in Austin</h1>
+                <p class="hero-subtitle">Discover unique homes and experiences in the heart of Texas</p>
+
+                <div class="search-container">
+                    <form class="search-form">
+                        <div class="search-group">
+                            <label class="search-label">Location</label>
+                            <input type="text" class="search-input" placeholder="Where in Austin?" />
+                        </div>
+
+                        <div class="search-group">
+                            <label class="search-label">Check in</label>
+                            <input type="date" class="search-input" />
+                        </div>
+
+                        <div class="search-group">
+                            <label class="search-label">Check out</label>
+                            <input type="date" class="search-input" />
+                        </div>
+
+                        <button type="submit" class="search-button">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                            </svg>
+                            Search
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Properties -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-2">Featured Properties</h2>
+                <p class="text-gray-600">Handpicked homes for your next stay</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Property Cards (same as original) -->
+                <!-- Property Card 1 -->
+                <div class="property-card">
+                    <img src="/api/placeholder/400" alt="Luxury Apartment" class="property-image">
+                    <div class="p-6">
+                        <div class="text-sm font-medium text-blue-600 mb-2">Luxury Apartment</div>
+                        <h3 class="text-xl font-bold mb-2">Modern Downtown Loft</h3>
+                        <div class="text-2xl font-bold text-gray-900 mb-4">$199/night</div>
+                        <div class="text-gray-600">
+                            <span>2 Beds</span>
+                            <span class="mx-2">•</span>
+                            <span>2 Baths</span>
+                            <span class="mx-2">•</span>
+                            <span>Downtown</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Add more property cards... -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section (New) -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-2">Why Choose BevoBnB</h2>
+                <p class="text-gray-600">Experience the best of Austin living</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="mb-4">
+                        <svg class="w-12 h-12 mx-auto text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Verified Properties</h3>
+                    <p class="text-gray-600">All our properties are personally verified for quality and comfort</p>
+                </div>
+                <div class="feature-card">
+                    <div class="mb-4">
+                        <svg class="w-12 h-12 mx-auto text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Secure Booking</h3>
+                    <p class="text-gray-600">Book with confidence using our secure payment system</p>
+                </div>
+                <div class="feature-card">
+                    <div class="mb-4">
+                        <svg class="w-12 h-12 mx-auto text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">24/7 Support</h3>
+                    <p class="text-gray-600">Our team is always here to help you</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section (New) -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-2">What Our Guests Say</h2>
+                <p class="text-gray-600">Real experiences from real travelers</p>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="flex items-center mb-4">
+                        <img src="/api/placeholder/48/48" alt="User" class="w-12 h-12 rounded-full">
+                        <div class="ml-4">
+                            <h4 class="font-bold">Sarah Johnson</h4>
+                            <div class="text-yellow-400">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"Amazing experience! The downtown loft exceeded our expectations. Perfect location and amazing amenities."</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="flex items-center mb-4">
+                        <img src="/api/placeholder/48/48" alt="User" class="w-12 h-12 rounded-full">
+                        <div class="ml-4">
+                            <h4 class="font-bold">Michael Chen</h4>
+                            <div class="text-yellow-400">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"Great service and beautiful property. Will definitely book through BevoBnB again!"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section (New) -->
+    <section class="py-16 bg-blue-600 text-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-2xl mx-auto text-center">
+                <h2 class="text-3xl font-bold mb-4">Stay Updated</h2>
+                <p class="mb-8">Subscribe to our newsletter for exclusive deals and Austin travel tips</p>
+                <form class="flex gap-4">
+                    <input type="email" placeholder="Enter your email" class="flex-1 px-4 py-3 rounded-lg text-gray-900">
+                    <button type="submit" class="btn bg-white text-blue-600 hover:bg-gray-100">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+ 

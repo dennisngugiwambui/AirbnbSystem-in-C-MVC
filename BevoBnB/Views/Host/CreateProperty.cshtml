@@ -1,0 +1,228 @@
+﻿@model BevoBnB.ViewModels.CreatePropertyViewModel
+@{
+    ViewData["Title"] = "Add New Property";
+    Layout = "_Layout";
+
+    var states = new List<SelectListItem>
+    {
+        new SelectListItem { Value = "AL", Text = "Alabama" },
+        new SelectListItem { Value = "AK", Text = "Alaska" },
+        new SelectListItem { Value = "AZ", Text = "Arizona" },
+        new SelectListItem { Value = "AR", Text = "Arkansas" },
+        new SelectListItem { Value = "CA", Text = "California" },
+        new SelectListItem { Value = "CO", Text = "Colorado" },
+        new SelectListItem { Value = "CT", Text = "Connecticut" },
+        // Add all US states
+        new SelectListItem { Value = "TX", Text = "Texas", Selected = true },
+    };
+}
+
+<div class="container mx-auto px-4 py-8 max-w-6xl">
+    <div class="mb-8">
+        <h1 class="text-2xl font-semibold text-gray-900">Add New Property</h1>
+        <p class="mt-2 text-sm text-gray-600">List your property on BevoBnB to start earning</p>
+    </div>
+
+    <form asp-action="CreateProperty" method="post" enctype="multipart/form-data" id="propertyForm" class="space-y-6">
+        @if (!ViewData.ModelState.IsValid)
+        {
+            <div class="bg-red-50 border-l-4 border-red-500 p-4">
+                <div asp-validation-summary="All" class="text-sm text-red-600"></div>
+            </div>
+        }
+
+        <!-- Property Details -->
+
+        <div class="section-card">
+            <h2 class="section-title">Property Details</h2>
+
+            <div class="form-group">
+                <label asp-for="CategoryID" class="form-label">Property Type</label>
+                <select asp-for="CategoryID" asp-items="Model.Categories" class="form-control">
+                    <option value="">Select property type</option>
+                </select>
+                <span asp-validation-for="CategoryID" class="text-red-500"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Street" class="form-label">Street Address</label>
+                <input asp-for="Street" class="form-control" placeholder="Enter street address" />
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="form-group">
+                    <label asp-for="City" class="form-label">City</label>
+                    <input asp-for="City" class="form-control" placeholder="Enter city" />
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="State" class="form-label">State</label>
+                    <select asp-for="State" asp-items="states" class="form-control"></select>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Zip" class="form-label">ZIP Code</label>
+                    <input asp-for="Zip" class="form-control" placeholder="Enter ZIP code" />
+                </div>
+            </div>
+        </div>
+
+       
+
+        <!-- Property Features -->
+        <div class="bg-white rounded-lg shadow-sm p-6">
+            <h2 class="text-lg font-semibold mb-4">Property Features</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="form-group">
+                    <label asp-for="Bedrooms" class="form-label">Bedrooms</label>
+                    <input type="number" asp-for="Bedrooms" min="1" max="20" class="form-input" />
+                    <span asp-validation-for="Bedrooms" class="error-message"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Bathrooms" class="form-label">Bathrooms</label>
+                    <input type="number" asp-for="Bathrooms" min="1" max="10" step="0.5" class="form-input" />
+                    <span asp-validation-for="Bathrooms" class="error-message"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="GuestsAllowed" class="form-label">Maximum Guests</label>
+                    <input type="number" asp-for="GuestsAllowed" min="1" max="20" class="form-input" />
+                    <span asp-validation-for="GuestsAllowed" class="error-message"></span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4 mt-4">
+                <div class="form-check">
+                    <input type="checkbox" asp-for="PetsAllowed" class="form-checkbox" />
+                    <label asp-for="PetsAllowed" class="form-check-label">Pets Allowed</label>
+                </div>
+
+                <div class="form-check">
+                    <input type="checkbox" asp-for="FreeParking" class="form-checkbox" />
+                    <label asp-for="FreeParking" class="form-check-label">Free Parking</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pricing -->
+        <div class="bg-white rounded-lg shadow-sm p-6">
+            <h2 class="text-lg font-semibold mb-4">Pricing</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="form-group">
+                    <label asp-for="WeekdayPrice" class="form-label">Weekday Price ($)</label>
+                    <input type="number" asp-for="WeekdayPrice" step="0.01" min="0" max="10000" class="form-input pl-7" />
+                    <span asp-validation-for="WeekdayPrice" class="error-message"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="WeekendPrice" class="form-label">Weekend Price ($)</label>
+                    <input type="number" asp-for="WeekendPrice" step="0.01" min="0" max="10000" class="form-input pl-7" />
+                    <span asp-validation-for="WeekendPrice" class="error-message"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="CleaningFee" class="form-label">Cleaning Fee ($)</label>
+                    <input type="number" asp-for="CleaningFee" step="0.01" min="0" max="1000" class="form-input pl-7" />
+                    <span asp-validation-for="CleaningFee" class="error-message"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="DiscountRate" class="form-label">Discount Rate (%)</label>
+                    <input type="number" asp-for="DiscountRate" step="0.1" min="0" max="100" class="form-input" />
+                    <span asp-validation-for="DiscountRate" class="error-message"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="MinNightsForDiscount" class="form-label">Minimum Nights for Discount</label>
+                    <input type="number" asp-for="MinNightsForDiscount" min="1" max="30" class="form-input" />
+                    <span asp-validation-for="MinNightsForDiscount" class="error-message"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Image Upload -->
+        <div class="bg-white rounded-lg shadow-sm p-6">
+            <h2 class="text-lg font-semibold mb-4">Property Image</h2>
+
+            <div id="dropZone" class="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center">
+                <input type="file" id="PropertyImage" name="PropertyImage" class="hidden" accept="image/*" />
+                <label for="PropertyImage" class="cursor-pointer">
+                    <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48">
+                        <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"
+                              stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <p class="mt-1 text-sm text-gray-600">Click to upload or drag and drop</p>
+                    <p class="mt-1 text-xs text-gray-500">PNG, JPG, GIF up to 10MB</p>
+                </label>
+            </div>
+
+            <div id="imagePreview" class="mt-4 hidden">
+                <img src="#" alt="Preview" class="max-w-full h-auto rounded-lg" />
+            </div>
+            <span asp-validation-for="PropertyImage" class="error-message"></span>
+        </div>
+
+        <!-- Submit -->
+        <div class="flex justify-end space-x-4">
+            <a asp-action="Properties" class="btn-secondary">Cancel</a>
+            <button type="submit" class="btn-primary">Create Property</button>
+        </div>
+    </form>
+</div>
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const dropZone = document.getElementById('dropZone');
+            const fileInput = document.getElementById('PropertyImage');
+            const preview = document.getElementById('imagePreview');
+
+            function handleFileSelect(file) {
+                if (!file.type.startsWith('image/')) {
+                    alert('Please upload an image file');
+                    return;
+                }
+
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    preview.querySelector('img').src = e.target.result;
+                    preview.classList.remove('hidden');
+                };
+                reader.readAsDataURL(file);
+            }
+
+            fileInput.addEventListener('change', (e) => {
+                if (e.target.files[0]) handleFileSelect(e.target.files[0]);
+            });
+
+            dropZone.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                dropZone.classList.add('dragover');
+            });
+
+            dropZone.addEventListener('dragleave', (e) => {
+                e.preventDefault();
+                dropZone.classList.remove('dragover');
+            });
+
+            dropZone.addEventListener('drop', (e) => {
+                e.preventDefault();
+                dropZone.classList.remove('dragover');
+                if (e.dataTransfer.files[0]) {
+                    fileInput.files = e.dataTransfer.files;
+                    handleFileSelect(e.dataTransfer.files[0]);
+                }
+            });
+
+            document.getElementById('propertyForm').addEventListener('submit', (e) => {
+                if (!fileInput.files.length) {
+                    e.preventDefault();
+                    alert('Please upload a property image');
+                }
+            });
+        });
+    </script>

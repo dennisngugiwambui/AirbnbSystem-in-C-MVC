@@ -1,0 +1,266 @@
+﻿
+@using BevoBnB.Models;
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+@model BevoBnB.ViewModels.EditPropertyViewModel
+
+@{
+    ViewData["Title"] = "Edit Property";
+    Layout = "_Layout";
+
+    var states = new List<SelectListItem>
+    {
+        new SelectListItem { Value = "AL", Text = "Alabama" },
+        new SelectListItem { Value = "AK", Text = "Alaska" },
+        new SelectListItem { Value = "AZ", Text = "Arizona" },
+        new SelectListItem { Value = "AR", Text = "Arkansas" },
+        new SelectListItem { Value = "CA", Text = "California" },
+        new SelectListItem { Value = "CO", Text = "Colorado" },
+        new SelectListItem { Value = "CT", Text = "Connecticut" },
+        // Add all US states
+        new SelectListItem { Value = "TX", Text = "Texas", Selected = true },
+    };
+}
+
+<link href="~/css/CreateProperty.css" rel="stylesheet" />
+
+<div class="container mx-auto px-4 py-8 max-w-6xl">
+    <div class="mb-8">
+        <h1 class="text-2xl font-semibold text-gray-900">Edit Property</h1>
+        <p class="mt-2 text-sm text-gray-600">Update your property information</p>
+    </div>
+
+    <form asp-action="EditProperty" method="post" enctype="multipart/form-data" class="space-y-6">
+        <input type="hidden" asp-for="PropertyID" />
+        <input type="hidden" asp-for="ExistingImageUrl" />
+
+        @if (!ViewData.ModelState.IsValid)
+        {
+            <div class="bg-red-50 border-l-4 border-red-500 p-4">
+                <div asp-validation-summary="All" class="text-sm text-red-600"></div>
+            </div>
+        }
+
+        <!-- Property Details -->
+        <div class="bg-white rounded-lg shadow p-6">
+            <h2 class="text-lg font-semibold mb-4">Property Details</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="form-group">
+                    <label asp-for="CategoryID" class="form-label">Property Type</label>
+                    <select asp-for="CategoryID" asp-items="Model.Categories" class="form-input"></select>
+                    <span asp-validation-for="CategoryID" class="text-red-500 text-sm"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Street" class="form-label">Street Address</label>
+                    <input asp-for="Street" class="form-input" />
+                    <span asp-validation-for="Street" class="text-red-500 text-sm"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="City" class="form-label">City</label>
+                    <input asp-for="City" class="form-input" />
+                    <span asp-validation-for="City" class="text-red-500 text-sm"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="State" class="form-label">State</label>
+                    <select asp-for="State" asp-items="states" class="form-input">
+                        <option value="">Select a state</option>
+                    </select>
+                    <span asp-validation-for="State" class="text-red-500 text-sm"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Zip" class="form-label">ZIP Code</label>
+                    <input asp-for="Zip" class="form-input" />
+                    <span asp-validation-for="Zip" class="text-red-500 text-sm"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Property Features -->
+        <div class="bg-white rounded-lg shadow p-6">
+            <h2 class="text-lg font-semibold mb-4">Property Features</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="form-group">
+                    <label asp-for="Bedrooms" class="form-label">Bedrooms</label>
+                    <input type="number" asp-for="Bedrooms" class="form-input" min="1" max="20" />
+                    <span asp-validation-for="Bedrooms" class="text-red-500 text-sm"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Bathrooms" class="form-label">Bathrooms</label>
+                    <input type="number" asp-for="Bathrooms" class="form-input" min="1" max="10" step="0.5" />
+                    <span asp-validation-for="Bathrooms" class="text-red-500 text-sm"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="GuestsAllowed" class="form-label">Maximum Guests</label>
+                    <input type="number" asp-for="GuestsAllowed" class="form-input" min="1" max="20" />
+                    <span asp-validation-for="GuestsAllowed" class="text-red-500 text-sm"></span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-6 mt-4">
+                <div class="flex items-center">
+                    <input type="checkbox" asp-for="PetsAllowed" class="form-checkbox" />
+                    <label asp-for="PetsAllowed" class="ml-2">Pets Allowed</label>
+                </div>
+
+                <div class="flex items-center">
+                    <input type="checkbox" asp-for="FreeParking" class="form-checkbox" />
+                    <label asp-for="FreeParking" class="ml-2">Free Parking</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pricing -->
+        <div class="bg-white rounded-lg shadow p-6">
+            <h2 class="text-lg font-semibold mb-4">Pricing</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="form-group">
+                    <label asp-for="WeekdayPrice" class="form-label">Weekday Price ($)</label>
+                    <input type="number" asp-for="WeekdayPrice" class="form-input pl-7" step="0.01" min="0" />
+                    <span asp-validation-for="WeekdayPrice" class="text-red-500 text-sm"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="WeekendPrice" class="form-label">Weekend Price ($)</label>
+                    <input type="number" asp-for="WeekendPrice" class="form-input pl-7" step="0.01" min="0" />
+                    <span asp-validation-for="WeekendPrice" class="text-red-500 text-sm"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="CleaningFee" class="form-label">Cleaning Fee ($)</label>
+                    <input type="number" asp-for="CleaningFee" class="form-input pl-7" step="0.01" min="0" />
+                    <span asp-validation-for="CleaningFee" class="text-red-500 text-sm"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="DiscountRate" class="form-label">Discount Rate (%)</label>
+                    <input type="number" asp-for="DiscountRate" class="form-input" step="0.1" min="0" max="100" />
+                    <span asp-validation-for="DiscountRate" class="text-red-500 text-sm"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="MinNightsForDiscount" class="form-label">Minimum Nights for Discount</label>
+                    <input type="number" asp-for="MinNightsForDiscount" class="form-input" min="1" max="30" />
+                    <span asp-validation-for="MinNightsForDiscount" class="text-red-500 text-sm"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="PropertyStatus" class="form-label">Property Status</label>
+                    <div class="flex items-center mt-2">
+                        <input type="checkbox" asp-for="PropertyStatus" class="form-checkbox h-5 w-5" />
+                        <label class="ml-2 text-sm text-gray-700">Active</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Property Image -->
+        <div class="bg-white rounded-lg shadow p-6">
+            <h2 class="text-lg font-semibold mb-4">Property Image</h2>
+
+            @if (!string.IsNullOrEmpty(Model.ExistingImageUrl))
+            {
+                <div class="mb-4">
+                    <p class="text-sm text-gray-600 mb-2">Current Image:</p>
+                    <img src="~/images/properties/@Model.ExistingImageUrl" alt="Property Image"
+                         class="w-full max-w-md rounded-lg shadow-sm" />
+                </div>
+            }
+
+            <div class="mt-4">
+                <div class="flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-lg">
+                    <div class="space-y-1 text-center">
+                        <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48">
+                            <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"
+                                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <div class="flex text-sm text-gray-600">
+                            <label for="PropertyImage" class="relative cursor-pointer bg-white rounded-md font-medium text-blue-600 hover:text-blue-500">
+                                <span>Upload a new image</span>
+                                <input id="PropertyImage" name="PropertyImage" type="file" accept="image/*" class="sr-only" />
+                            </label>
+                            <p class="pl-1">or drag and drop</p>
+                        </div>
+                        <p class="text-xs text-gray-500">PNG, JPG, GIF up to 10MB</p>
+                    </div>
+                </div>
+                <div id="imagePreview" class="mt-4 hidden">
+                    <img src="#" alt="Preview" class="max-w-md rounded-lg shadow-sm" />
+                </div>
+            </div>
+        </div>
+
+        <!-- Submit Buttons -->
+        <div class="flex justify-end space-x-4">
+            <a asp-action="Properties" class="btn btn-secondary">
+                Cancel
+            </a>
+            <button type="submit" class="btn btn-primary">
+                Update Property
+            </button>
+        </div>
+    </form>
+</div>
+
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const fileInput = document.getElementById('PropertyImage');
+            const preview = document.getElementById('imagePreview');
+            const previewImg = preview.querySelector('img');
+            const dropZone = document.querySelector('.border-dashed');
+
+            function showPreview(file) {
+                if (file && file.type.startsWith('image/')) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        previewImg.src = e.target.result;
+                        preview.classList.remove('hidden');
+                    }
+                    reader.readAsDataURL(file);
+                }
+            }
+
+            fileInput.addEventListener('change', function(e) {
+                if (this.files[0]) {
+                    showPreview(this.files[0]);
+                }
+            });
+
+            // Drag and drop functionality
+            dropZone.addEventListener('dragover', function(e) {
+                e.preventDefault();
+                this.classList.add('border-blue-500', 'bg-blue-50');
+            });
+
+            dropZone.addEventListener('dragleave', function(e) {
+                e.preventDefault();
+                this.classList.remove('border-blue-500', 'bg-blue-50');
+            });
+
+            dropZone.addEventListener('drop', function(e) {
+                e.preventDefault();
+                this.classList.remove('border-blue-500', 'bg-blue-50');
+
+                if (e.dataTransfer.files[0]) {
+                    fileInput.files = e.dataTransfer.files;
+                    showPreview(e.dataTransfer.files[0]);
+                }
+            });
+        });
+    </script>

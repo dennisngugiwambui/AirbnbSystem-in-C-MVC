@@ -1,0 +1,820 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|c:\\users\\denno\\source\\repos\\bevobnb\\bevobnb\\views\\admin\\manageproperties.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|solutionrelative:bevobnb\\views\\admin\\manageproperties.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|c:\\users\\denno\\source\\repos\\bevobnb\\bevobnb\\views\\admin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|solutionrelative:bevobnb\\views\\admin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|c:\\users\\denno\\source\\repos\\bevobnb\\bevobnb\\views\\admin\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|solutionrelative:bevobnb\\views\\admin\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|c:\\users\\denno\\source\\repos\\bevobnb\\bevobnb\\dal\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|solutionrelative:bevobnb\\dal\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|c:\\users\\denno\\source\\repos\\bevobnb\\bevobnb\\helper\\sessionextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|solutionrelative:bevobnb\\helper\\sessionextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|c:\\users\\denno\\source\\repos\\bevobnb\\bevobnb\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|solutionrelative:bevobnb\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Denno\\AppData\\Roaming\\Microsoft\\UserSecrets\\0174119e-6967-4d9e-9d72-1dc426aa019a\\secrets.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|c:\\users\\denno\\source\\repos\\bevobnb\\bevobnb\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|solutionrelative:bevobnb\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|c:\\users\\denno\\source\\repos\\bevobnb\\bevobnb\\views\\customer\\favorites.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|solutionrelative:bevobnb\\views\\customer\\favorites.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|c:\\users\\denno\\source\\repos\\bevobnb\\bevobnb\\views\\customer\\mybookings.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|solutionrelative:bevobnb\\views\\customer\\mybookings.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|c:\\users\\denno\\source\\repos\\bevobnb\\bevobnb\\viewcomponents\\hasuserreviewedviewcomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|solutionrelative:bevobnb\\viewcomponents\\hasuserreviewedviewcomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|c:\\users\\denno\\source\\repos\\bevobnb\\bevobnb\\views\\shared\\components\\hasuserreviewed\\default.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|solutionrelative:bevobnb\\views\\shared\\components\\hasuserreviewed\\default.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|c:\\users\\denno\\source\\repos\\bevobnb\\bevobnb\\viewmodels\\hasuserreviewedviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|solutionrelative:bevobnb\\viewmodels\\hasuserreviewedviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|c:\\users\\denno\\source\\repos\\bevobnb\\bevobnb\\views\\customer\\profile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|solutionrelative:bevobnb\\views\\customer\\profile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|c:\\users\\denno\\source\\repos\\bevobnb\\bevobnb\\views\\customer\\explore.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|solutionrelative:bevobnb\\views\\customer\\explore.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|c:\\users\\denno\\source\\repos\\bevobnb\\bevobnb\\views\\customer\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|solutionrelative:bevobnb\\views\\customer\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|c:\\users\\denno\\source\\repos\\bevobnb\\bevobnb\\controllers\\customercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|solutionrelative:bevobnb\\controllers\\customercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|c:\\users\\denno\\source\\repos\\bevobnb\\bevobnb\\models\\property.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|solutionrelative:bevobnb\\models\\property.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|c:\\users\\denno\\source\\repos\\bevobnb\\bevobnb\\models\\reservation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|solutionrelative:bevobnb\\models\\reservation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|c:\\users\\denno\\source\\repos\\bevobnb\\bevobnb\\models\\review.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|solutionrelative:bevobnb\\models\\review.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|c:\\users\\denno\\source\\repos\\bevobnb\\bevobnb\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|solutionrelative:bevobnb\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|c:\\users\\denno\\source\\repos\\bevobnb\\bevobnb\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|solutionrelative:bevobnb\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|c:\\users\\denno\\source\\repos\\bevobnb\\bevobnb\\views\\customer\\success.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|solutionrelative:bevobnb\\views\\customer\\success.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|c:\\users\\denno\\source\\repos\\bevobnb\\bevobnb\\viewmodels\\bookingviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|solutionrelative:bevobnb\\viewmodels\\bookingviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|c:\\users\\denno\\source\\repos\\bevobnb\\bevobnb\\views\\admin\\managereservations.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|solutionrelative:bevobnb\\views\\admin\\managereservations.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|c:\\users\\denno\\source\\repos\\bevobnb\\bevobnb\\services\\bookingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|solutionrelative:bevobnb\\services\\bookingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|c:\\users\\denno\\source\\repos\\bevobnb\\bevobnb\\views\\admin\\edituser.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|solutionrelative:bevobnb\\views\\admin\\edituser.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|c:\\users\\denno\\source\\repos\\bevobnb\\bevobnb\\views\\customer\\confirmation.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|solutionrelative:bevobnb\\views\\customer\\confirmation.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|c:\\users\\denno\\source\\repos\\bevobnb\\bevobnb\\views\\customer\\settings.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|solutionrelative:bevobnb\\views\\customer\\settings.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|c:\\users\\denno\\source\\repos\\bevobnb\\bevobnb\\models\\enums.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|solutionrelative:bevobnb\\models\\enums.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|c:\\users\\denno\\source\\repos\\bevobnb\\bevobnb\\viewmodels\\adminviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|solutionrelative:bevobnb\\viewmodels\\adminviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|c:\\users\\denno\\source\\repos\\bevobnb\\bevobnb\\views\\admin\\reports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|solutionrelative:bevobnb\\views\\admin\\reports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|c:\\users\\denno\\source\\repos\\bevobnb\\bevobnb\\views\\admin\\userdetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|solutionrelative:bevobnb\\views\\admin\\userdetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|c:\\users\\denno\\source\\repos\\bevobnb\\bevobnb\\views\\customer\\bookingsuccess.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|solutionrelative:bevobnb\\views\\customer\\bookingsuccess.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|c:\\users\\denno\\source\\repos\\bevobnb\\bevobnb\\viewmodels\\createpropertyviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|solutionrelative:bevobnb\\viewmodels\\createpropertyviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|c:\\users\\denno\\source\\repos\\bevobnb\\bevobnb\\views\\customer\\propertydetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|solutionrelative:bevobnb\\views\\customer\\propertydetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|c:\\users\\denno\\source\\repos\\bevobnb\\bevobnb\\models\\cartitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|solutionrelative:bevobnb\\models\\cartitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|c:\\users\\denno\\source\\repos\\bevobnb\\bevobnb\\services\\cartservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|solutionrelative:bevobnb\\services\\cartservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|c:\\users\\denno\\source\\repos\\bevobnb\\bevobnb\\services\\ibookingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|solutionrelative:bevobnb\\services\\ibookingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|c:\\users\\denno\\source\\repos\\bevobnb\\bevobnb\\services\\icartservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|solutionrelative:bevobnb\\services\\icartservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|c:\\users\\denno\\source\\repos\\bevobnb\\bevobnb\\views\\admin\\propertydetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|solutionrelative:bevobnb\\views\\admin\\propertydetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|c:\\users\\denno\\source\\repos\\bevobnb\\bevobnb\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|solutionrelative:bevobnb\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|c:\\users\\denno\\source\\repos\\bevobnb\\bevobnb\\views\\admin\\manageusers.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|solutionrelative:bevobnb\\views\\admin\\manageusers.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|c:\\users\\denno\\source\\repos\\bevobnb\\bevobnb\\views\\admin\\createadmin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|solutionrelative:bevobnb\\views\\admin\\createadmin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|c:\\users\\denno\\source\\repos\\bevobnb\\bevobnb\\views\\admin\\managereviews.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|solutionrelative:bevobnb\\views\\admin\\managereviews.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|c:\\users\\denno\\source\\repos\\bevobnb\\bevobnb\\views\\home\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|solutionrelative:bevobnb\\views\\home\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|c:\\users\\denno\\source\\repos\\bevobnb\\bevobnb\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|solutionrelative:bevobnb\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|c:\\users\\denno\\source\\repos\\bevobnb\\bevobnb\\models\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|solutionrelative:bevobnb\\models\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|c:\\users\\denno\\source\\repos\\bevobnb\\bevobnb\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DA926C65-D30B-45B2-BE9B-5C4D53ABCF86}|BevoBnB\\BevoBnB.csproj|solutionrelative:bevobnb\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 46,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "EditUser.cshtml",
+              "DocumentMoniker": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\Views\\Admin\\EditUser.cshtml",
+              "RelativeDocumentMoniker": "BevoBnB\\Views\\Admin\\EditUser.cshtml",
+              "ToolTip": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\Views\\Admin\\EditUser.cshtml",
+              "RelativeToolTip": "BevoBnB\\Views\\Admin\\EditUser.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-28T13:00:19.822Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "SessionExtensions.cs",
+              "DocumentMoniker": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\Helper\\SessionExtensions.cs",
+              "RelativeDocumentMoniker": "BevoBnB\\Helper\\SessionExtensions.cs",
+              "ToolTip": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\Helper\\SessionExtensions.cs",
+              "RelativeToolTip": "BevoBnB\\Helper\\SessionExtensions.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-04T22:26:25.186Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "secrets.json",
+              "DocumentMoniker": "C:\\Users\\Denno\\AppData\\Roaming\\Microsoft\\UserSecrets\\0174119e-6967-4d9e-9d72-1dc426aa019a\\secrets.json",
+              "RelativeDocumentMoniker": "..\\..\\..\\AppData\\Roaming\\Microsoft\\UserSecrets\\0174119e-6967-4d9e-9d72-1dc426aa019a\\secrets.json",
+              "ToolTip": "C:\\Users\\Denno\\AppData\\Roaming\\Microsoft\\UserSecrets\\0174119e-6967-4d9e-9d72-1dc426aa019a\\secrets.json",
+              "RelativeToolTip": "..\\..\\..\\AppData\\Roaming\\Microsoft\\UserSecrets\\0174119e-6967-4d9e-9d72-1dc426aa019a\\secrets.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-12-02T23:38:59.37Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\appsettings.json",
+              "RelativeDocumentMoniker": "BevoBnB\\appsettings.json",
+              "ToolTip": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\appsettings.json",
+              "RelativeToolTip": "BevoBnB\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-12-02T23:36:13.516Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "HasUserReviewedViewComponent.cs",
+              "DocumentMoniker": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\ViewComponents\\HasUserReviewedViewComponent.cs",
+              "RelativeDocumentMoniker": "BevoBnB\\ViewComponents\\HasUserReviewedViewComponent.cs",
+              "ToolTip": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\ViewComponents\\HasUserReviewedViewComponent.cs",
+              "RelativeToolTip": "BevoBnB\\ViewComponents\\HasUserReviewedViewComponent.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-02T22:21:47.947Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Default.cshtml",
+              "DocumentMoniker": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\Views\\Shared\\Components\\HasUserReviewed\\Default.cshtml",
+              "RelativeDocumentMoniker": "BevoBnB\\Views\\Shared\\Components\\HasUserReviewed\\Default.cshtml",
+              "ToolTip": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\Views\\Shared\\Components\\HasUserReviewed\\Default.cshtml",
+              "RelativeToolTip": "BevoBnB\\Views\\Shared\\Components\\HasUserReviewed\\Default.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-02T22:20:49.233Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "HasUserReviewedViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\ViewModels\\HasUserReviewedViewModel.cs",
+              "RelativeDocumentMoniker": "BevoBnB\\ViewModels\\HasUserReviewedViewModel.cs",
+              "ToolTip": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\ViewModels\\HasUserReviewedViewModel.cs",
+              "RelativeToolTip": "BevoBnB\\ViewModels\\HasUserReviewedViewModel.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-02T22:01:46.623Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "Enums.cs",
+              "DocumentMoniker": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\Models\\Enums.cs",
+              "RelativeDocumentMoniker": "BevoBnB\\Models\\Enums.cs",
+              "ToolTip": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\Models\\Enums.cs",
+              "RelativeToolTip": "BevoBnB\\Models\\Enums.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAswAYAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-29T22:59:51.662Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "ManageReservations.cshtml",
+              "DocumentMoniker": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\Views\\Admin\\ManageReservations.cshtml",
+              "RelativeDocumentMoniker": "BevoBnB\\Views\\Admin\\ManageReservations.cshtml",
+              "ToolTip": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\Views\\Admin\\ManageReservations.cshtml",
+              "RelativeToolTip": "BevoBnB\\Views\\Admin\\ManageReservations.cshtml",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAIwAwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-29T22:45:57.532Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "UserDetails.cshtml",
+              "DocumentMoniker": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\Views\\Admin\\UserDetails.cshtml",
+              "RelativeDocumentMoniker": "BevoBnB\\Views\\Admin\\UserDetails.cshtml",
+              "ToolTip": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\Views\\Admin\\UserDetails.cshtml",
+              "RelativeToolTip": "BevoBnB\\Views\\Admin\\UserDetails.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-29T22:33:08.871Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "Success.cshtml",
+              "DocumentMoniker": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\Views\\Customer\\Success.cshtml",
+              "RelativeDocumentMoniker": "BevoBnB\\Views\\Customer\\Success.cshtml",
+              "ToolTip": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\Views\\Customer\\Success.cshtml",
+              "RelativeToolTip": "BevoBnB\\Views\\Customer\\Success.cshtml",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAUwCEAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-29T22:26:23.833Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "BookingSuccess.cshtml",
+              "DocumentMoniker": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\Views\\Customer\\BookingSuccess.cshtml",
+              "RelativeDocumentMoniker": "BevoBnB\\Views\\Customer\\BookingSuccess.cshtml",
+              "ToolTip": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\Views\\Customer\\BookingSuccess.cshtml",
+              "RelativeToolTip": "BevoBnB\\Views\\Customer\\BookingSuccess.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-29T22:14:09.266Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Profile.cshtml",
+              "DocumentMoniker": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\Views\\Customer\\Profile.cshtml",
+              "RelativeDocumentMoniker": "BevoBnB\\Views\\Customer\\Profile.cshtml",
+              "ToolTip": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\Views\\Customer\\Profile.cshtml",
+              "RelativeToolTip": "BevoBnB\\Views\\Customer\\Profile.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-29T20:22:18.404Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "Settings.cshtml",
+              "DocumentMoniker": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\Views\\Customer\\Settings.cshtml",
+              "RelativeDocumentMoniker": "BevoBnB\\Views\\Customer\\Settings.cshtml",
+              "ToolTip": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\Views\\Customer\\Settings.cshtml",
+              "RelativeToolTip": "BevoBnB\\Views\\Customer\\Settings.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-29T20:22:16.196Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\Views\\Customer\\Index.cshtml",
+              "RelativeDocumentMoniker": "BevoBnB\\Views\\Customer\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\Views\\Customer\\Index.cshtml",
+              "RelativeToolTip": "BevoBnB\\Views\\Customer\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-29T17:04:01.003Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Favorites.cshtml",
+              "DocumentMoniker": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\Views\\Customer\\Favorites.cshtml",
+              "RelativeDocumentMoniker": "BevoBnB\\Views\\Customer\\Favorites.cshtml",
+              "ToolTip": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\Views\\Customer\\Favorites.cshtml",
+              "RelativeToolTip": "BevoBnB\\Views\\Customer\\Favorites.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-29T17:03:59.669Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "Confirmation.cshtml",
+              "DocumentMoniker": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\Views\\Customer\\Confirmation.cshtml",
+              "RelativeDocumentMoniker": "BevoBnB\\Views\\Customer\\Confirmation.cshtml",
+              "ToolTip": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\Views\\Customer\\Confirmation.cshtml",
+              "RelativeToolTip": "BevoBnB\\Views\\Customer\\Confirmation.cshtml",
+              "ViewState": "AgIAADwAAAAAAAAAAAAAAEoAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-29T09:42:20.765Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "CartService.cs",
+              "DocumentMoniker": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\Services\\CartService.cs",
+              "RelativeDocumentMoniker": "BevoBnB\\Services\\CartService.cs",
+              "ToolTip": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\Services\\CartService.cs",
+              "RelativeToolTip": "BevoBnB\\Services\\CartService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAswBkAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-29T09:11:40.069Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "BookingService.cs",
+              "DocumentMoniker": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\Services\\BookingService.cs",
+              "RelativeDocumentMoniker": "BevoBnB\\Services\\BookingService.cs",
+              "ToolTip": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\Services\\BookingService.cs",
+              "RelativeToolTip": "BevoBnB\\Services\\BookingService.cs",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAAADcAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-29T09:11:12.218Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "ICartService.cs",
+              "DocumentMoniker": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\Services\\ICartService.cs",
+              "RelativeDocumentMoniker": "BevoBnB\\Services\\ICartService.cs",
+              "ToolTip": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\Services\\ICartService.cs",
+              "RelativeToolTip": "BevoBnB\\Services\\ICartService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-29T09:10:37.094Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "IBookingService.cs",
+              "DocumentMoniker": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\Services\\IBookingService.cs",
+              "RelativeDocumentMoniker": "BevoBnB\\Services\\IBookingService.cs",
+              "ToolTip": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\Services\\IBookingService.cs",
+              "RelativeToolTip": "BevoBnB\\Services\\IBookingService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-29T09:09:13.067Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\DAL\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "BevoBnB\\DAL\\AppDbContext.cs",
+              "ToolTip": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\DAL\\AppDbContext.cs",
+              "RelativeToolTip": "BevoBnB\\DAL\\AppDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-29T09:08:06.21Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "CartItem.cs",
+              "DocumentMoniker": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\Models\\CartItem.cs",
+              "RelativeDocumentMoniker": "BevoBnB\\Models\\CartItem.cs",
+              "ToolTip": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\Models\\CartItem.cs",
+              "RelativeToolTip": "BevoBnB\\Models\\CartItem.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAswAcAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-29T09:06:19.091Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "BookingViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\ViewModels\\BookingViewModel.cs",
+              "RelativeDocumentMoniker": "BevoBnB\\ViewModels\\BookingViewModel.cs",
+              "ToolTip": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\ViewModels\\BookingViewModel.cs",
+              "RelativeToolTip": "BevoBnB\\ViewModels\\BookingViewModel.cs",
+              "ViewState": "AgIAANQAAAAAAAAAAAAAAO4AAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-29T09:00:15.044Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "PropertyDetails.cshtml",
+              "DocumentMoniker": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\Views\\Customer\\PropertyDetails.cshtml",
+              "RelativeDocumentMoniker": "BevoBnB\\Views\\Customer\\PropertyDetails.cshtml",
+              "ToolTip": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\Views\\Customer\\PropertyDetails.cshtml",
+              "RelativeToolTip": "BevoBnB\\Views\\Customer\\PropertyDetails.cshtml",
+              "ViewState": "AgIAALQAAAAAAAAAAAAYwMwAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-29T08:39:57.232Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "ErrorViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\Models\\ErrorViewModel.cs",
+              "RelativeDocumentMoniker": "BevoBnB\\Models\\ErrorViewModel.cs",
+              "ToolTip": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\Models\\ErrorViewModel.cs",
+              "RelativeToolTip": "BevoBnB\\Models\\ErrorViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-29T02:57:19.244Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "CustomerController.cs",
+              "DocumentMoniker": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\Controllers\\CustomerController.cs",
+              "RelativeDocumentMoniker": "BevoBnB\\Controllers\\CustomerController.cs",
+              "ToolTip": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\Controllers\\CustomerController.cs",
+              "RelativeToolTip": "BevoBnB\\Controllers\\CustomerController.cs",
+              "ViewState": "AgIAAD0DAAAAAAAAAAAiwFgDAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-29T02:37:48.964Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Explore.cshtml",
+              "DocumentMoniker": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\Views\\Customer\\Explore.cshtml",
+              "RelativeDocumentMoniker": "BevoBnB\\Views\\Customer\\Explore.cshtml",
+              "ToolTip": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\Views\\Customer\\Explore.cshtml",
+              "RelativeToolTip": "BevoBnB\\Views\\Customer\\Explore.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-29T02:34:38.816Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "MyBookings.cshtml",
+              "DocumentMoniker": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\Views\\Customer\\MyBookings.cshtml",
+              "RelativeDocumentMoniker": "BevoBnB\\Views\\Customer\\MyBookings.cshtml",
+              "ToolTip": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\Views\\Customer\\MyBookings.cshtml",
+              "RelativeToolTip": "BevoBnB\\Views\\Customer\\MyBookings.cshtml",
+              "ViewState": "AgIAAIsAAAAAAAAAAAAcwKYAAABJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-29T02:34:31.27Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "Reports.cshtml",
+              "DocumentMoniker": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\Views\\Admin\\Reports.cshtml",
+              "RelativeDocumentMoniker": "BevoBnB\\Views\\Admin\\Reports.cshtml",
+              "ToolTip": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\Views\\Admin\\Reports.cshtml",
+              "RelativeToolTip": "BevoBnB\\Views\\Admin\\Reports.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAABHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-29T02:22:24.256Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "CreatePropertyViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\ViewModels\\CreatePropertyViewModel.cs",
+              "RelativeDocumentMoniker": "BevoBnB\\ViewModels\\CreatePropertyViewModel.cs",
+              "ToolTip": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\ViewModels\\CreatePropertyViewModel.cs",
+              "RelativeToolTip": "BevoBnB\\ViewModels\\CreatePropertyViewModel.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAmwDEAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-29T02:01:59.964Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Property.cs",
+              "DocumentMoniker": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\Models\\Property.cs",
+              "RelativeDocumentMoniker": "BevoBnB\\Models\\Property.cs",
+              "ToolTip": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\Models\\Property.cs",
+              "RelativeToolTip": "BevoBnB\\Models\\Property.cs",
+              "ViewState": "AgIAAFQAAAAAAAAAAAAgwHQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-29T01:50:57.852Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\Program.cs",
+              "RelativeDocumentMoniker": "BevoBnB\\Program.cs",
+              "ToolTip": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\Program.cs",
+              "RelativeToolTip": "BevoBnB\\Program.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAvwCwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-29T01:48:43.694Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\Views\\Admin\\Index.cshtml",
+              "RelativeDocumentMoniker": "BevoBnB\\Views\\Admin\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\Views\\Admin\\Index.cshtml",
+              "RelativeToolTip": "BevoBnB\\Views\\Admin\\Index.cshtml",
+              "ViewState": "AgIAAEwAAAAAAAAAAAAswHQAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-29T01:37:52.479Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "CreateAdmin.cshtml",
+              "DocumentMoniker": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\Views\\Admin\\CreateAdmin.cshtml",
+              "RelativeDocumentMoniker": "BevoBnB\\Views\\Admin\\CreateAdmin.cshtml",
+              "ToolTip": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\Views\\Admin\\CreateAdmin.cshtml",
+              "RelativeToolTip": "BevoBnB\\Views\\Admin\\CreateAdmin.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-29T01:28:43.246Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "ManageReviews.cshtml",
+              "DocumentMoniker": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\Views\\Admin\\ManageReviews.cshtml",
+              "RelativeDocumentMoniker": "BevoBnB\\Views\\Admin\\ManageReviews.cshtml",
+              "ToolTip": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\Views\\Admin\\ManageReviews.cshtml",
+              "RelativeToolTip": "BevoBnB\\Views\\Admin\\ManageReviews.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-29T01:16:11.598Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Review.cs",
+              "DocumentMoniker": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\Models\\Review.cs",
+              "RelativeDocumentMoniker": "BevoBnB\\Models\\Review.cs",
+              "ToolTip": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\Models\\Review.cs",
+              "RelativeToolTip": "BevoBnB\\Models\\Review.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAkwDEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-28T22:15:32.319Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\Views\\Admin\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "BevoBnB\\Views\\Admin\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\Views\\Admin\\_Layout.cshtml",
+              "RelativeToolTip": "BevoBnB\\Views\\Admin\\_Layout.cshtml",
+              "ViewState": "AgIAAFYAAAAAAAAAAAAswH4AAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-28T21:40:38.224Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Reservation.cs",
+              "DocumentMoniker": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\Models\\Reservation.cs",
+              "RelativeDocumentMoniker": "BevoBnB\\Models\\Reservation.cs",
+              "ToolTip": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\Models\\Reservation.cs",
+              "RelativeToolTip": "BevoBnB\\Models\\Reservation.cs",
+              "ViewState": "AgIAADsAAAAAAAAAAAAkwFwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-28T21:15:12.441Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "ManageUsers.cshtml",
+              "DocumentMoniker": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\Views\\Admin\\ManageUsers.cshtml",
+              "RelativeDocumentMoniker": "BevoBnB\\Views\\Admin\\ManageUsers.cshtml",
+              "ToolTip": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\Views\\Admin\\ManageUsers.cshtml",
+              "RelativeToolTip": "BevoBnB\\Views\\Admin\\ManageUsers.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-28T20:07:46.878Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "BevoBnB\\Controllers\\AdminController.cs",
+              "ToolTip": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\Controllers\\AdminController.cs",
+              "RelativeToolTip": "BevoBnB\\Controllers\\AdminController.cs",
+              "ViewState": "AgIAADUEAAAAAAAAAAAIwEwEAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-28T20:01:10.437Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "PropertyDetails.cshtml",
+              "DocumentMoniker": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\Views\\Admin\\PropertyDetails.cshtml",
+              "RelativeDocumentMoniker": "BevoBnB\\Views\\Admin\\PropertyDetails.cshtml",
+              "ToolTip": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\Views\\Admin\\PropertyDetails.cshtml",
+              "RelativeToolTip": "BevoBnB\\Views\\Admin\\PropertyDetails.cshtml",
+              "ViewState": "AgIAACgAAAAAAAAAAAAQwIkAAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-28T17:22:41.733Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "AdminViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\ViewModels\\AdminViewModel.cs",
+              "RelativeDocumentMoniker": "BevoBnB\\ViewModels\\AdminViewModel.cs",
+              "ToolTip": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\ViewModels\\AdminViewModel.cs",
+              "RelativeToolTip": "BevoBnB\\ViewModels\\AdminViewModel.cs",
+              "ViewState": "AgIAANcAAAAAAAAAAAAzwO4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-28T17:20:26.37Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ManageProperties.cshtml",
+              "DocumentMoniker": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\Views\\Admin\\ManageProperties.cshtml",
+              "RelativeDocumentMoniker": "BevoBnB\\Views\\Admin\\ManageProperties.cshtml",
+              "ToolTip": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\Views\\Admin\\ManageProperties.cshtml",
+              "RelativeToolTip": "BevoBnB\\Views\\Admin\\ManageProperties.cshtml",
+              "ViewState": "AgIAAF0BAAAAAAAAAAAswHEBAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-28T17:14:17.327Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "Register.cshtml",
+              "DocumentMoniker": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\Views\\Home\\Register.cshtml",
+              "RelativeDocumentMoniker": "BevoBnB\\Views\\Home\\Register.cshtml",
+              "ToolTip": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\Views\\Home\\Register.cshtml",
+              "RelativeToolTip": "BevoBnB\\Views\\Home\\Register.cshtml",
+              "ViewState": "AgIAAOUAAAAAAAAAAAAewPkAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-28T16:18:51.247Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 47,
+              "Title": "Users.cs",
+              "DocumentMoniker": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\Models\\Users.cs",
+              "RelativeDocumentMoniker": "BevoBnB\\Models\\Users.cs",
+              "ToolTip": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\Models\\Users.cs",
+              "RelativeToolTip": "BevoBnB\\Models\\Users.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAYwC0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-28T15:55:59.153Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "BevoBnB\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "BevoBnB\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-28T13:13:57.874Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 48,
+              "Title": "Category.cs",
+              "DocumentMoniker": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\Models\\Category.cs",
+              "RelativeDocumentMoniker": "BevoBnB\\Models\\Category.cs",
+              "ToolTip": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\Models\\Category.cs",
+              "RelativeToolTip": "BevoBnB\\Models\\Category.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-28T13:12:19.699Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 46,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "BevoBnB\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\Denno\\source\\repos\\BevoBnB\\BevoBnB\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "BevoBnB\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAJ4AAAAAAAAAAAAIwLkAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-28T12:55:39.998Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
